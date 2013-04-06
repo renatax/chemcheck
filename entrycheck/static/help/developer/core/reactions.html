@@ -1,0 +1,107 @@
+<html>
+ <head>
+  <meta NAME="description" CONTENT="R-group structures">
+  <meta NAME="author" CONTENT="Peter Szakacs">
+  <script type="text/javascript" src="../../../examples/sh_main.js"></script>
+  <script type="text/javascript" src="../../../examples/sh_java.js"></script>
+  <script type="text/javascript" src="../../../examples/sh_javascript.js">
+     </script>
+  <link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css"
+        TITLE="Style">
+  <link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" 
+        TITLE="Style">
+  <title>Representation of reactions</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+<h1> Representation of reactions </h1> 
+ <h2> Introduction </h2> 
+  <p>
+   Chemical reactions take place between two or more molecules 
+   called <i>reactants</i>, and results other molecules called 
+   <i>products</i>. 
+   Sometimes other molecule may participate in the reaction, the <i>agent</i>. 
+   Similarly, the <code>chemaxon.struc.RxnMolecule</code> class that represents
+   the chemical reactions, embeddes two or more molecules. 
+  </p>
+
+ <h2> Implementation </h2> 
+   <h4> Build an RxnMolecule </h4>
+   <p>
+    The <code>RxnMolecule.addComponent(Molecule, int)</code> method adds the 
+    reactant, agent and result Molecule object to the RxnMolecule.  
+    In the argumentum of the method <code>Molecule</code> is molecule object
+    to be added, while the integer flag specifies the type of the component.
+    The constants of the <code>RxnMolecule</code> class can be used:
+    <ul>
+      <li> <code>RxnMolecule.REACTANTS</code> </li>
+      <li> <code>RxnMolecule.AGENTS</code> </li>
+      <li> <code>RxnMolecule.PRODUCTS</code> </li>
+      <li> <code>RxnMolecule.RGROUPED</code> - to add R-groups to the reaction
+           </li> 
+    </ul>
+   </p>
+
+  <h4> Reaction arrows </h4> 
+   <p> 
+     To change the type of the reaction arrow, use the 
+     <code>RxnMolecule.setReactionArrowType(int)</code>. You can use the 
+     predefined constatns: 
+     <ul> 
+        <li> <code>RxnMolecule.REGULAR_SINGLE </code></li>
+        <li> <code>RxnMolecule.TWO_HEADED_SINGLE </code></li>
+        <li> <code>RxnMolecule.REGULAR_DOUBLE </code></li>
+        <li> <code>RxnMolecule.TWO_HEADED_DOUBLE </code></li>
+        <li> <code>RxnMolecule.RESONANCE </code></li>
+        <li> <code>RxnMolecule.RETROSYNTHETIC </code></li>
+        <li> <code>RxnMolecule.EQUILIBRIUM </code></li>
+     </ul> 
+   </p>
+
+  <p>
+   You may find an example program <a href="appendix.html#rxnmolecule">here</a>.
+
+  </p>
+
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+
+ <table>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="sgroup.html">S-groups</a>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="core_index.html"> Table of contents</a> 
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="examples-mol-representation.html"> 
+               Examples for the Molecule representation</a>
+      </p>
+     </td>
+   </tr>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;"> 
+        <i>Previous chapter</i> 
+       </p> 
+     </td>
+     <td width="250" valign="middle">
+         &nbsp;
+     </td>
+     <td width="250" valign="middle" >
+      <p style="text-align: center;">
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table>
+</body>
+</html> 

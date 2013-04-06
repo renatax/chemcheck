@@ -1,0 +1,108 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Importing and Exporting molecule properties</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+ 
+<h1><a name="import_props" class="anchor">Importing and Exporting molecule properties</a></h1>
+
+<p>Molecule objects can contain general properties (property value - property key pairs). 
+The formats mrv, sdf, rdf are able to store the molecule properties. 
+
+<h3><a name="read_properties" class="anchor">Reading properties after import</a></h3>
+In case we know the name of the properties we can use the following code to get the values in text format:</p>
+<pre class="sh_java">
+    String value = molecule.getProperty(LOGP_FIELD); //LOGP_FIELD is the name of the property
+</pre>
+
+<p>Otherwise we need to go through the property names. An example is below:</p>
+<pre class="sh_java">
+    for (int i=0; i&lt;molecule.getPropertyCount(); i++) {
+        String key = molecule.getPropertyKey(i); // name of the property
+        String value = molecule.getProperty(key); // the property value
+    }
+</pre>
+
+<p>For a complete source code, please see <a href="../../../examples/io/basic/ImportProperties.java"><code>ImportProperties.java</code></a>.</p>
+
+<h3><a name="collect_properties" class="anchor">Collecting property keys</a></h3>
+MolFileHandler.collectFileInfo() enlists the existing property keys:
+<pre class="sh_java">
+	MolFileHandler.collectFileInfo(inputStream, 0, collectedFields);
+	java.util.Iterator<String> iterator = collectedFields.iterator();
+	while (iterator.hasNext()) {
+	    System.out.println(iterator.next());
+	}	
+</pre>
+<p>For a complete source code, please see <a href="../../../examples/io/basic/CollectProperties.java"><code>CollectProperties.java</code></a>.</p>
+
+
+<h3><a name="add_properties" class="anchor">Adding and exporting properties </a></h3>
+
+<p>The following example shows how to add properties via API:</p>
+<pre class="sh_java">
+	Molecule mol = MolImporter.importMol("ccccc");
+	MHashProp hashProp = new MHashProp();
+	mol.setPropertyObject("ROOT", hashProp);
+	hashProp.put("CdId", new MStringProp("1"));
+	hashProp.put("Formula", new MStringProp("C5H10"));
+	MMoleculeProp secondaryStruc = new MMoleculeProp(MolImporter.importMol("cc"));
+	hashProp.put("secondStruct", secondaryStruc);
+	mol.setProperty("$REGNO", "MI24");
+	System.out.println(MolExporter.exportToFormat(mol, "rdf"));
+</pre>
+<p>For a complete source code, please see <a href="../../../examples/io/basic/ExportProperties.java"><code>ExportProperties.java</code></a>.</p>
+
+<p>External or internal registry number of a molecule can be added to the molecule or reaction via API. 
+The mrv, mol (sdf, rdf) format exports and imports these registry numbers after specifying them:</p>
+
+<pre class="sh_java">
+	...
+	int regno = 218;
+	while ((mol=imp.read())!=null){
+	    //add the internal registry number (sequence number in the database) of the reaction
+	    mol.setProperty("$REGNO", "RI" + regno);
+	    regno++;
+	    exp.write(mol);  
+	}
+	...
+</pre>
+
+<p>For a complete source code, please see <a href="../../../examples/io/basic/ExportingReactions.java"><code>ExportingReactions.java</code></a>.</p>
+
+ <p>&nbsp;</p>
+  <p>&nbsp;</p>
+ 
+ <table summary="next pages">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="image_generation.html">Image generation </a> <br>
+      		  <i>Previous chapter</i>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="index.html"> Table of contents</a> <br>
+       &nbsp;
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="molecule_converter.html"> Molecule converter
+           </a><br>
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table> 
+
+</body>
+</html>

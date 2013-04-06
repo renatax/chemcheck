@@ -1,0 +1,120 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Exporting structures</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+ 
+<h1><a name="export" class="anchor">Export</a></h1>
+<p>Molecule export is the operation when Molecule objects are converted to targets in 
+various formats.
+</p>
+<h2><a name="targets" class="anchor">Target of data export</a></h2>
+When exporting structures via ChemAxon tools, we will refer to different target of the data to be written:
+<ul>
+<li>Structure file where location is given with absolute or relative path</li>
+<li>Stream output</li>
+<li>String representation of the molecule in various formats</li>
+<li>Binary representation of the molecule in various formats</li>
+<li>Image representation of the molecule in various formats</li>
+</ul>
+
+<h2><a name="export_api" class="anchor">Basic export using the API</a></h2>
+
+<p>The most frequently used API for molecule export is defined in <a href="../beans/api/chemaxon/formats/MolExporter.html"><code>chemaxon.formats.MolExporter</code></a>.
+MolExporter has lots of utility functions.</p>
+
+<h3><a name="export_string" class="anchor">Exporting to String</a></h3>
+<p>Exporting one molecule to String: </p>
+<pre class="sh_javascript">
+	Molecule molecule = buildSimpleMolecule();
+	System.out.println("Water molecule in mrv: " );
+	System.out.println( MolExporter.exportToFormat(molecule, "mrv:P"));
+	System.out.println("Water molecule in smiles: ");
+	System.out.println(MolExporter.exportToFormat(molecule, "smiles"));
+	RgMolecule rgMol = buildRgMolecule();
+	System.out.println("Molecule with R-groups in mrv: ");
+	System.out.println(MolExporter.exportToFormat(rgMol, "mrv:P"));
+	System.out.println("Molecule with R-groups in smiles: ");
+	System.out.println(MolExporter.exportToFormat(rgMol, "smiles"));
+</pre>
+
+
+<p>Please note that some features, for example R-groups cannot be exported to all formats. Here the SMILES export for R-groups 
+throws an exception because the SMILES format doesn't support R-groups!</p>
+
+For a complete source code, please see <a href="../../../examples/io/basic/ExportingMolecules.java"><code>ExportingMolecules.java</code></a>.
+
+
+<h3><a name="export_multiple_molecules" class="anchor">Exporting multiple molecules</a></h3>
+
+<p>Writing more molecules into one target is also possible:</p> 
+<pre class="sh_javascript">
+	
+	MolExporter exporter = new MolExporter(outputStream, "cml");
+	Molecule fragments[] = molecule.findFrags(Molecule.class, Molecule.FRAG_BASIC);
+	for (Molecule fragment : fragments ){
+	    exporter.write(fragment);
+	}
+	exporter.close();
+	
+</pre>
+For a complete source code, please see <a href="../../../examples/io/basic/AppendMolecules.java"><code>AppendMolecules.java</code></a>.
+
+<h3><a name="export_options" class="anchor">Exporting options</a></h3>
+Additional options of MolExporter allow to refine behavior further. 
+Options can be general or dependent on file formats. 
+Options can be set in the constructor <code>MolExporter(InputStream is, String opts)</code> or during import with static method <code>MolExporter.exportToFormat</code>. 
+The most important option is the file format option which specifies the expected file format.
+General or file format dependent options are separated by a colon from the file format option and by a comma from each other.
+In the code example below the molecule is exported without the explicit hydrogens with the general <code>-H</code> option.
+This is a general export option and can be applied in case of any file format.
+File format option is <code>mol</code> for MDL MOL file format and file format specific option is <code>V3</code> to export the file in extended MOL format.
+<pre class="sh_java">
+	try {
+		MolExporter exporter = new MolExporter("outputMolecule.mol", "mol:V3,-H");
+		exporter.write(molecule);
+		exporter.close();
+	} catch (MolFormatException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+</pre>
+For a complete source code, please see <a href="../../../examples/io/basic/ImportExportOptions.java"><code>ImportExportOptions.java</code></a>.
+
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+ 
+ <table summary="next pages">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="import.html"> Import</a> <br>
+      		  <i>Previous chapter</i>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="index.html"> Table of contents</a> <br>
+       &nbsp;
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="image_generation.html"> 
+           Image generation</a><br>
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table> 
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Molecule converter</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+ 
+<h1><a name="molecule_converter" class="anchor">Molecule converter</a></h1>
+
+The MolConverter helper class converts molecules between various file formats. 
+<p>The detailed documentation about the supported file formats can be found in the 
+<a href="../..//applications/molconvert.html">Molecule File Conversion</a> document.</p>
+Here we present some examples:
+
+<h3><a name="simple_conversion" class="anchor">Simple conversion</a></h3>
+Simple SDfile to SMILES conversion:
+<pre class="sh_java">
+	MolConverter.Builder mcbld = new MolConverter.Builder();
+	mcbld.addInput("examples/plugin-api/example_mols.sdf", "");
+	mcbld.setOutput("out.smiles", "smiles");
+	mcbld.setOutputFlags(MolExporter.TEXT);
+	MolConverter mc = mcbld.build();
+	while(mc.convert());
+	mc.close();
+</pre>
+<p>For a complete source code, please see <a href="../../../examples/io/basic/MoleculeConverter.java"><code>MoleculeConverter.java</code></a>.</p>
+
+<h3><a name="splitting_conversion" class="anchor">Splitting multi-molecule input</a></h3>
+To split a multi-molecule input file into multiple Molfiles named out1.mol, out2.mol etc., use the following settings:
+<pre class="sh_java">
+	MolConverter.Builder mcbld = new MolConverter.Builder();
+	mcbld.addInput("examples/plugin-api/example_mols.sdf", "");
+	mcbld.setOutput("out.mol", "mol");
+	mcbld.setOutputFlags(MolExporter.TEXT|MolExporter.MULTIPLE);
+	MolConverter mc = mcbld.build();
+	while(mc.convert());
+	mc.close();
+</pre>
+<p>For a complete source code, please see <a href="../../../examples/io/basic/SplitMultiMolecules.java"><code>SplitMultiMolecules.java</code></a>.</p>
+
+<h3><a name="merging_conversion" class="anchor">Merging more molecules</a></h3>
+To merge more molecule input files into a multi-molecule file, use the following settings:
+<pre class="sh_java">
+	MolConverter.Builder mcbld = new MolConverter.Builder();
+	mcbld.addInput("in1.mol", "");
+	mcbld.addInput("in2.mol", "");
+	mcbld.addInput("in3.mol", "");
+	mcbld.setOutput("out.sdf", "sdf");
+	mcbld.setOutputFlags( MolExporter.TEXT );
+	MolConverter mc = mcbld.build();
+	while(mc.convert());
+	mc.close();
+</pre>
+<p>For a complete source code, please see <a href="../../../examples/io/basic/MergeMultiMolecules.java"><code>MergeMultiMolecules.java</code></a>.</p>
+
+
+<table summary="next pages">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="molecular_prop.html">Importing and Exporting molecule properties </a> <br>
+      		  <i>Previous chapter</i>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="index.html"> Table of contents</a> <br>
+       &nbsp;
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="own_format.html"> Integrating your own format
+           </a><br>
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table> 
+
+</body>
+</html>

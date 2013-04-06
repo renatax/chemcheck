@@ -1,0 +1,252 @@
+<html>
+<head>
+<meta NAME="description" CONTENT="Sgroups">
+<meta NAME="author" CONTENT="Erika Biroi and Peter Szakacs">
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js">
+ </script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Sgroups</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+
+<h1><a class="anchor" NAME="expandable-sgroups">S-groups</a></h1>
+<h2><a class="anchor" NAME="superatom-sgroup">Superatom S-group</a></h2>
+
+<h3> Building of  Superatom S-group </h3> 
+We show how to build Superatom S-groups in the example of the phenil group.<br> 
+<img src="images/sgroup1.png" width=15% alt="superatom sgroup"> 
+
+<h4> Creating of SuperatomSgroup object </h4>
+<p> 
+ First, the whole molecule should be built using the Core API methods, or 
+imported. In this example, we import it from SMILES format. 
+Then the SuperatomSgroup is constructed with the molecule in the argument of
+the its constructor.
+</p>
+<pre class="sh_java">
+        Molecule mol = MolImporter.importMol("C1=CC=CC=C1C");
+        Cleaner.clean(mol, 2, null);
+
+        // Create the Sgroups.
+        SuperatomSgroup superSg = new SuperatomSgroup(mol);
+</pre>
+<!-- 
+<h4> Add atoms and bonds to an S-group </h4>
+<p>
+ Atoms and bonds can be added to an S-group using the 
+</p>
+<pre class="sh_java">
+	superSg.add(MolAtom atom);
+	superSg.add(MolBond bond);
+</pre>
+methods. If a bond is added to an S-group this way, make sure that both of its
+headatoms were added previously to the same group.
+ -->
+ 
+<h4> Setting an S-group as the parent of its atoms  </h4>
+<p>
+The atoms that are supposed to be a part of an S-group should be added to it 
+(that is, set the S-group as the parent of the MolAtom).
+In our example, we add the carbon atoms of the benzene ring to the S-group,
+they are the first six atoms of the molecule.
+</p>
+<pre class="sh_java">
+        for (int i = 0; i < 6; i++) {
+            mol.setSgroupParent(mol.getAtom(i), superSg, true);
+        }
+</pre>
+In the argument of the <code>Molecule.setSgroupParent()</code> method,
+<code>MolAtom</code> represents the atom to be added to the 
+Superatom S-group <code> superSg</code>. If the boolean is true, the
+atom will be added to the S-group, otherwise it will be removed from there.
+
+<h4> Set subscript of the S-group  </h4>
+<p> 
+ In order to set subscript of a Superatom S-group, use the 
+<code> SuperatomSgroup.setSubscript(String)</code> method:
+</p>
+<pre class="sh_java">
+       superSg.setSubscript("Ph"); 
+</pre>
+
+<h4> Set attach atoms </h4>
+One way to set S-group attachment point information on a given MolAtom object 
+is the
+<pre class="sh_java">
+	MolAtom.setAttach(int a);       
+</pre>
+method. The integer <code>int a</code> defines the type of the attachment point:
+<ul>
+   <li> <code>MolAtom.NONE</code>, </li>
+   <li> <code>MolAtom.Attach1</code>, </li>
+   <li> <code>MolAtom.Attach2</code>, </li>
+   <li> <code>MolAtom.BOTH</code>. </li>
+</ul>
+
+<h4> Calculate the attachment points </h4> 
+<p>
+ Attachments points are put to atoms in the S-group that have bond which other
+end atom is outside the group. That kind of bond is called crossing bond.
+Currently only two attachment points are possible on each Superatom S-group:
+</p>
+<ul>
+ <li> Two attachment points, <code>MolAtom.ATTACH1</code> and 
+   <code>MolAtom.ATTACH2</code> on two different atoms  </li>  
+ <li> <code> MolAtom.BOTH </code> both attachment points are on the same atom:
+   <code> MolAtom.BOTH </code> </li>
+</ul>
+ 
+
+<p> The method <code>SuperatomSgroup.calculateAttachmentPoints();</code> 
+calculates the attachment points for the atoms having crossing bonds.
+
+<pre class="sh_java">
+	superSg.calculateAttachmentPoints();
+</pre>
+
+
+<h3> Expanded, contracted state </h3> 
+There are two states of the molecule:
+<ul>
+ <li>All represented atoms are present in the parent molecule in all expandable 
+  S-group independently from their expansion state.
+  Here we can see a special S-group state called 
+  <code>Sgroup.XSTATE_XC</code> where the 
+  S-group remembers its previous contracted 
+  state but the represented atoms were moved to the molecule graph 
+  and the abbreviation (SgroupAtom) was removed from the molecule
+  graph. Set this state on all Sgroups by calling 
+  <code>Molecule.setGUIContracted(false) </code>or by calling 
+  <code>Sgroup.setGUIStateRecursively(false)</code> individually on Sgroup-s. 
+  Example for a typical usage is a non-GUI related API
+  based calculation where we need the represented atoms in the 
+  molecule graph instead of the abbreviation.
+ </li>
+ <li>
+  Either the abbreviation (SuperAtom) or the represented atom set is 
+  exclusively present depending on the state of the S-group. 
+  In the case of expanded S-groups (called <code>Sgroup.XSTATE_X</code>) 
+  the represented atoms are present in the parent molecule. 
+  In the case of contracted S-groups (called  <code>Sgroup.XSTATE_C</code>)  
+  the abbreviation (SgroupAtom) is present in the parent 
+  molecule. Set this state on all Sgroups by calling 
+  <code>Molecule.setGUIContracted(true)</code> or by calling 
+  <code>Sgroup.setGUIStateRecursively(true)</code> individually on Sgroup-s.
+ </li>
+ </ul>
+Note:
+ </br>
+When <code>Molecule.isGUIContracted() </code>returns true and afterwards you call:
+</br>
+<blockquote>
+ <code>
+  Molecule.setGUIContracted(false);
+   </br>
+  Molecule.setGUIContracted(true);
+ </code>
+</blockquote>
+the second <code>setGUIContracted</code> call will restore the state before 
+the first <code>setGUIContracted</code> call!
+
+<h2>Repeating unit S-groups</h2>
+<p>
+Repeating unit S-groups are used to represent polymers and other repeating
+units. 
+</p> 
+<p>
+In order to construct a repeating unit S-group object, use its constructor as
+</p>
+<pre class="sh_java">
+	RepeatingUnitSgroup repeatingSg = new RepeatingUnitSgroup(Molecule mol,
+		String connectivity, int type); 
+</pre> 
+<p>The parameter <code>Molecule</code> object will be the parent of the S-group 
+<code>repeatingSg</code>.
+The String connectivity defines way the units connects to each other: "ht", for
+head-to-tail; "hh", for head-to-head, and "eu" for either/undefined polymers.
+The type of the S-group can be defined using the following constants:
+</p>
+<ul>
+  <li> <code>Sgroup.ST_ANY</code>,</li>
+  <li> <code>Sgroup.ST_SRU</code>,</li>
+  <li> <code>Sgroup.ST_COPOLYMER</code>,</li>
+  <li> <code>Sgroup.ST_CROSSLINK</code>,</li>
+  <li> <code>Sgroup.ST_GRAFT</code>,</li>
+  <li> <code>Sgroup.ST_MODIFICATION</code>.</li>
+</ul>
+<p>
+Atoms and bonds can be added to a repeating unit S-group in a same way as to a
+Superatom S-group.
+</p>
+The bracket of this type of S-groups defines the repeating fragment of the 
+polymer. Bonds that cross the brackets, called crossing bonds, define how
+the repeating units of the S-group connect. 
+<p>
+<p> The <code>generateBracketCoord</code> method of the 
+<code>CleanUtil</code> class generates brackets. As parameter the S-group
+and the bracket type, square or round, should be added:
+</p>
+<pre class="sh_java">
+	CleanUtil.generateBracketCoords(repeatingSg, MBracket.T_SQUARE);
+</pre>
+<p>
+The end groups of polymers are often unknown or unspecified which are 
+represented by star atoms (*). Star atoms are defined with the
+<pre class="sh_java">
+	repeatingSg.addStarAtoms();	
+</pre>
+method.
+</p>
+
+
+<p>
+Full example of building of polystyrene can be found at the 
+<a href="appendix.html#sgroup">Code examples</a>.
+</p>
+
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ 
+ <table summary="chapters">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="rgroups.html">R-group structures</a>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="core_index.html"> Table of contents</a> 
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="reactions.html">Representation of reactions</a>
+      </p>
+     </td>
+   </tr>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;"> 
+        <i>Previous chapter</i> 
+       </p> 
+     </td>
+     <td width="250" valign="middle">
+         &nbsp;
+     </td>
+     <td width="250" valign="middle" >
+      <p style="text-align: center;">
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table>
+ 
+</body>
+</html>

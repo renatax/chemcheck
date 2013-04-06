@@ -1,0 +1,208 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Judit Vasko-Szedlar and Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Import</title>
+</head>
+<body onload="sh_highlightDocument();">
+
+<h1><a name="import" class="anchor">Import</a></h1>
+<p>Molecule import is the operation when sources of data, i.e. structures defined in various formats are
+converted to Molecule objects so that ChemAxon applications can operate with them.
+</p>
+
+<h2><a name="sources" class="anchor">Sources of data</a></h2>
+When importing structures with ChemAxon tools, we will refer to different sources the data comes from:
+<ul>
+<li>Structure file where location is given with absolute or relative path</li>
+<li>Structure file where location is given with URL</li>
+<li>Molecule source text (e.g. pre-read content of a structure file) in various formats</li>
+<li>Molecule object from another application or database</li>
+</ul>
+
+<h2><a name="import_api" class="anchor">Basic import using the API</a></h2>
+
+<p>The most frequently used API for molecule import is defined in <a href="../beans/api/chemaxon/formats/MolImporter.html"><code>chemaxon.formats.MolImporter</code></a> class.
+<code>MolImporter</code> has lots of utility functions.</p>
+
+
+
+<h3><a name="import_string" class="anchor">Importing from String</a></h3>
+The simplest way of importing one molecule where the molecule source is available as String is using the static 
+method of <code>MolImporter</code> class.
+<pre class="sh_java">
+    try {
+        Molecule mol = MolImporter.importMol("CCC(N)c1cc(Cl)cc(C(N)CC)c1Br");
+        // do something with the molecule
+    } catch (MolFormatException e) {
+        // handle the exception
+    }
+</pre>
+
+For a complete source code, please see <a href="../../../examples/io/basic/ImportMoleculeSource.java"><code>ImportMoleculeSource.java</code></a>.
+
+<h3><a name="import_stream" class="anchor">Importing from InputStream</a></h3>
+<p>Importing one molecule where the molecule source is available via an <code>InputStream</code>:</p>
+<pre class="sh_java">
+    try {
+        MolImporter mi = new MolImporter(stream);
+        Molecule mol = mi.read();
+        // do something with the molecule
+        mi.close();
+    } catch (IOException e) {
+        // handle the exception
+    }
+</pre>
+
+For a complete source code, please see <a href="../../../examples/io/basic/ImportFromStream.java"><code>ImportFromStream.java</code></a>.
+<p>Please note that the MolImporter needs to be closed explicitly!</p>
+
+<h3><a name="import_options" class="anchor">Importing options</a></h3>
+Additional options of MolImporter allow to refine behavior further. 
+Options can be general or dependent on file formats. 
+Options can be set in the constructor <code>MolImporter(InputStream is, String opts)</code> 
+or during import with static method <code>MolImporter.importMol(String s, String opts)</code>. 
+The most important option is the file format option which specifies the format to read from.
+However, without this format option the automatic format recognition will detect the format. 
+If the import speed is an important factor then the format option is strongly recommended.
+General or file format dependent options are separated by a colon from the file format option and by a comma from each other.
+In the code example below the molecules from the imported multi-structure file are merged into one structure with the <code>MULTISET</code> option.
+This is a general option and can be applied in case of any file format.
+File format option is <code>sdf</code> for MDL MOL SD file format and file format specific option is <code>Usg</code> to ungroup any S-group found in the
+structure file. 
+<pre class="sh_java">
+    try {
+        MolImporter importer = new MolImporter(new FileInputStream("examples/io/basic/mols.sdf"), "sdf:MULTISET,Usg");
+        Molecule molecule = importer.read();
+        // do something with the molecule
+        mi.close();
+    } catch (IOException e) {
+        // handle the exception
+    }
+</pre>
+
+For a complete source code, please see <a href="../../../examples/io/basic/ImportExportOptions.java"><code>ImportExportOptions.java</code></a>.
+<p> Note that after importing SMILES, invoking of <code>MoleculeGraph.clearCashedInfo</code> method is recommended
+in order to remove cashed informations which results increased molecule size. 
+</p>
+
+
+<h3><a name="import_multi" class="anchor">Importing a multi-molecule file</a></h3>
+<p>
+Importing molecules from a multi-molecule file given with URL:
+</p>
+<pre class="sh_java">
+    try {
+        URL url = new URL(path);
+        MolImporter importer = new MolImporter(url.openStream());
+        Molecule mol;
+        while ((mol = importer.read()) != null) {
+            // do something with the molecule
+        }
+        importer.close();        
+    } catch (IOException e) {
+        // handle the exception
+    }
+</pre>
+For a complete source code,
+please see <a href="../../../examples/io/basic/ImportMultiMoleculeFile.java"><code>ImportMultiMoleculeFile.java</code></a>.
+<p>
+Iterating on molecules where the molecule is the target of the "foreach" statement:
+</p>
+<pre class="sh_java">
+	URL url = new URL("http://www.chemaxon.com/marvin/mols-2d/mols.sdf");
+	for (Molecule molecule : new MolImporter(url.openStream())) {
+	     // do something with the molecule
+	}
+</pre>
+Please note that only one Iterator per MolImporter is working at the moment.
+
+For a complete source code,
+please see <a href="../../../examples/io/basic/ImportIterator.java"><code>ImportIterator.java</code></a>.
+
+<h3><a name="accessing_a_molecule_directly" class="anchor">Accessing a molecule directly</a></h3>
+<p>
+A molecule in a multi-molecule input can be accessed directly, seeking to the second molecule in this code example:
+</p>
+<pre class="sh_java">
+	URL url = new URL("http://www.chemaxon.com/marvin/mols-2d/mols.sdf");
+	MolImporter importer = new MolImporter(url.openStream(), "sdf");
+	importer.seekRecord(2, null);
+	Molecule molecule = importer.read();
+</pre>
+For a complete source code, please see <a href="../../../examples/io/basic/SeekingMolecule.java"><code>SeekingMolecule.java</code></a>, <code>seekRecord</code> method.
+
+
+<h3><a name="import_withrecordreader" class="anchor">Importing with MRecordImporter</a></h3>
+<p>Iterating on molecules and documents is possible with the <code>MRecordImporter</code> class also:</p>
+<pre class="sh_java">
+    try {
+        URL url = new URL(path);
+        MolInputStream mis = new MolInputStream(url.openStream(), null, null, null);
+        MRecordImporter importer = new MRecordImporter(mis, null);
+        MDocument mDocument;
+        while ((mDocument = importer.readDoc()) != null) {
+            Molecule mol = (Molecule) mDocument.getMainMoleculeGraph();
+            // do something with the molecule
+        }
+        importer.close();
+    } catch (MRecordParseException ex) {
+        ex.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+</pre>
+
+For a complete source code, please see <a href="../../../examples/io/basic/ImportMultiMoleculeFile.java"><code>ImportMultiMoleculeFile.java</code></a>, <code>importMoleculeWithMRecordImporter</code> method.
+
+<h3><a name="import_mrecord" class="anchor">Importing with MRecordReader</a></h3>
+<p>Iterating on records only is possible with the <code>MRecordReader</code> class :</p>
+<pre class="sh_java">
+		MRecordReader recordReader = MFileFormatUtil.createRecordReader(
+				new FileInputStream(new File("examples/io/basic/mols.rdf")),
+				null, null, null);
+		MRecord record = null;
+		int recordCount = 0;
+		while ((record = recordReader.nextRecord()) != null) {
+			
+			// do something with the record
+			
+			recordCount++;
+		}
+</pre>
+
+For a complete source code, please see <a href="../../../examples/io/basic/ImportRecords.java"><code>ImportRecords.java</code></a>.
+
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+ 
+ <table summary="next pages">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="supported_formats.html"> Supported formats</a> <br>
+      		 <i>Previous chapter</i>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="index.html"> Table of contents</a> <br>
+       &nbsp;
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="export.html"> 
+           Export</a><br>
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table> 
+
+</body>
+</html>

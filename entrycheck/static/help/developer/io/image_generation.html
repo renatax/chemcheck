@@ -1,0 +1,59 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Image generation</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+ 
+<h1><a name="image_generation" class="anchor">Image generation</a></h1>
+
+<p>Image generation is possible for the structures from chemaxon API with wide range of parameters. 
+The detailed documentation about the supported image formats can be found in the 
+<a href="../../formats/images-doc.html">Image export in Marvin</a> document.</p>
+<p>After applying atom and bond coloring, font setting on a molecule like in the example <a href="../core/sets.html">Atom and bond-set handling</a>
+the formatted structure is exported into png image format, with 400 pixel width and height, atom and bond set coloring, transparent background:  
+<pre class="sh_java">
+	MolExporter exporter = new MolExporter("setcolors.png",
+		 "png:w400,h400,setcolors,transbg");
+	exporter.write(mol);
+	exporter.close();
+</pre>
+
+<p>For a complete source code, please see <a href="../../../examples/core/SetColoring.java"><code>SetColoring.java</code></a>.</p>
+
+ <p>&nbsp;</p>
+  <p>&nbsp;</p>
+ 
+ <table summary="next pages">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="export.html"> Export</a> <br>
+      		  <i>Previous chapter</i>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="index.html"> Table of contents</a> <br>
+       &nbsp;
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="molecular_prop.html"> 
+           Importing and exporting molecular properties</a><br>
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table> 
+
+
+</body>
+</html>

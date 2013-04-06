@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="ChemAxon's Structure Checker Command-line Tool">
+	<meta name="author" content="Viktoria Palfi">
+	<link rel="stylesheet" type="text/css" href="../structurechecker.css">
+	<meta name="keywords" content="Structure Checker, GUI, fixer, profile, automatic">
+	<title>Structurechecker - Structure Checker's Command-line Tool</title>
+</head>
+<body>
+
+<h1>Structurechecker - The Command-line Tool of Structure Checker</h1>
+<center>
+<h3>Version 5.12.1</h3>
+</center>
+<h2>Contents</h2>
+        <ul>
+            <li><a href="#commandline"><code>structurechecker</code> command-line tool</a></li>
+			<li><a href="#options">Options</a>
+				<ul>
+					<li><a href="#cmd">Commands</a></li>
+					<li><a href="#checkers">Checker actions</a></li>
+					<li><a href="#fixers">Fixer actions</a></li>
+				</ul>
+			</li>
+			<li><a href="#usage">Usage</a></li>
+			<li><a href="#input">Input</a></li>
+			<li><a href="#output">Output</a></li>
+			<li><a href="#examples">Examples</a></li>
+			<li><a href="structurechecker_examples.html" target="_blank">Examples of structure checking in various ChemAxon products</a></li>
+			<li><a href="#links">Links</a></li>
+ 		</ul>
+<h2><a class="anchor" id="commandline"></a><code>structurechecker</code> command-line</h2>
+
+<p><a href="structurechecker.html">Structure Checker</a> is a chemical validation tool detecting and fixing common structural errors or 
+special features that can be potential sources of problems. <b><code>structurechecker</code></b> is the command-line tool 
+of <em>Structure Checker</em>. </p>
+
+<h2><a class="anchor" id="options"></a>Options</h2>
+<h3><a class="anchor" id="cmd"></a>General options of <code>structurechecker</code></h3>
+<pre>
+  -h,  --help                        this help page
+  -hc, --help-checker-action         help page of valid checker actions
+  -hf, --help-fixer-action           help page of valid fixer actions
+  -m, --mode &lt;operationmode&gt;         [check|fix]
+                                     mode of the operation (default: check)
+          check                      only check is executed, 
+                                     does not modify molecules
+          fix                        fix molecules containing structure errors 
+                                     whenever possible
+  -x                                 fix mode (deprecated, use --mode fix)
+Input options:
+  -c, --config &lt;filepath|string&gt;     action string configuration
+                                     actions separated by "..",
+Output options:
+  -t, --output-type &lt;output type&gt;    [single|separated|accepted|discarded]
+                                     set output type(default: single)           
+          single                     both accepted and discarded structures are
+                                     written to the &lt;output path&gt;
+          separated                  accepted structures are written to the
+                                     &lt;output path&gt;, discarded structures are
+                                     written to the &lt;discarded path&gt;
+          accepted                   only accepted structures are  
+                                     written to the &lt;output path&gt;
+          discarded                  only discarded structures are  
+                                     written to the &lt;discarded path&gt;
+  -o, --output &lt;output path&gt;         output file (default: standard output)
+  -d, --discarded &lt;discarded path&gt;   write molecules with structure error to 
+                                     a separate file (default:standard output)
+  -f, --format &lt;format&gt;              output file format (default: smiles)
+  -rf, --report-file &lt;filepath&gt;      write report to a file
+  -rp, --report-property &lt;propname&gt;  write report to the property of the
+                                     output, with the specified property name
+  -rt, --report-pattern &lt;pattern&gt;    generate pattern based report file
+  -re, --report-format &lt;format&gt;      file format of the molecules in report
+  -l, --log &lt;filepath&gt;               write software-error log messages to file
+  -ocr, --discard-scan-errors        discard incorrectly scanned molecules
+</pre>
+<a href="#">Go to top</a>
+<h3><a class="anchor" id="checkers"></a>Avaliable checker actions: <code>structurechecker -hc</code></h3>
+<pre>
+Valid checker actions (strings) are:
+  3d                             detect atoms with 3D coordinates
+  abbrevgroup                    detect all abbreviated groups
+    :expanded=[true|false]       detect expanded abbreviated groups
+    :contracted=[true|false]     detect contracted abbreviated groups
+    :excluded=[...]              exclude the following groups during check;
+                                 set comma-separated list of group abbreviations,
+                                 e.g., "abbrevgroup:excluded=[Ph,COOH,Val]"
+  absentchiralflag               detect absent chiral flag
+  absolutestereoconfiguration    detect molecules in which all asymmetric
+                                 centers have absolute stereo configuration
+  alias                          detect atoms with alias
+  aromaticity                    (deprecated) use aromaticityerror
+  aromaticityerror               detect aromaticity errors with the given
+                                 aromatization type (default: general)
+    :basic                       basic aromaticity errors
+    :loose                       loose aromaticity errors
+    :general                     general aromaticity errors
+  atommap                        detect atoms with map number
+  atomqueryproperty              detect all or specified atom query properties
+    :H=[true|false]              hydrogen count
+    :X=[true|false]              connection count
+    :D=[true|false]              explicit connection count
+    :R=[true|false]              ring count
+    :h=[true|false]              implicit hydrogen count
+    :r=[true|false]              smallest ring count
+    :a=[true|false]              aromaticity
+    :s=[true|false]              substitution count
+    :u=[true|false]              unsaturation
+    :rb=[true|false]             ring bond count
+  atomvalue                      detect atoms with atom value
+  atropisomer                    detect atropisomers
+  attacheddata                   detect atoms with attached data
+  bondangle                      detect unpreferred bond angles in 2d
+  bondlength                     detect bonds that are too long or too short
+  chiralflagerror                detect incorrectly set chiral flag
+  circularrgroup                 (deprecated) use circularrgroupreference
+  circularrgroupreference        detect circular R-group references
+  coordsystem                    detect invalid coordination systems
+  covalentcounterion             detect covalent counterions
+  crosseddoublebond              detect crossed double bonds
+  empty                          detect items without atoms
+  explicith                      detect all or specified explicit hydrogens
+    :lonely=[true|false]         lonely explicit hydrogens
+    :mapped=[true|false]         mapped explicit hydrogens
+    :charged=[true|false]        charged explicit hydrogens
+    :isotopic=[true|false]       isotopic explicit hydrogens
+    :radical=[true|false]        radical explicit hydrogens
+    :wedged=[true|false]         wedged explicit hydrogens
+    :hconnected=[true|false]     hydrogen connected to hydrogen atom
+    :polymerendgroup=[true|false]  hydrogen connected to a SRU S-group
+    :sgroup=[true|false]         hydrogen which is the only atom in an S-group
+    :sgroupend=[true|false]      hydrogen connected to a Superatom S-group
+    :valenceerror=[true|false]   hydrogen connected to an atom which has
+                                 valence error
+    :bridgehead=[true|false]     hydrogen connected to a bridgehead atom
+  explicitlp                     detect explicit lone pairs
+  ezdoublebond                   detect if a double bond can be cis or trans
+  isotope                        detect isotopes
+  metallocene                    detect incorrect metallocene representations
+  missingatommap                 detect atoms without map numbers
+  missingrgroup                  (deprecated) use missingrgroupreference
+  missingrgroupreference         detect missing R-group definitions
+  moleculecharge                 detect non-neutral molecules
+  multicenter                    detect multicenters
+  multicomponent                 detect molecules containing disconnected parts
+  multiplestereocenter           detect molecules with multiple stereocenters
+  ocr                            detect drawings that originates from
+                                 incorrect optical structure recognition
+  overlappingAtoms               detect atoms that are too close to each other
+  overlappingBonds               detect bonds that are too close to each other
+  pseudoatom                     detect pseudo atoms
+  queryatom                      detect query atoms
+  querybond                      detect query bonds
+  racemate                       detect asymmetric tetrahedral atoms without
+                                 specific stereo configuration
+  radical                        detect radical atoms
+  rare                           (deprecated) use rareelement
+  rareelement                    detect rare elements
+  ratom                          detect specified type of R-atoms
+    :all=[true|false]            all type of R-atoms
+    :disconnected=[true|false]   disconnected type of R-atoms
+    :generic=[true|false]        generic type of R-atoms
+    :linker=[true|false]         linker type of R-atoms
+    :nested=[true|false]         nested type of R-atoms
+  reactionmap                    (deprecated) use reactionmaperror
+  reactionmaperror               detect reactions with invalid atom mapping
+  relativestereo                 detect multiple stereogenic center groups
+  rgroupattachmenterror          detect all R-group attachment errors
+  rgroupreferenceerror           detect errors in R-group definitions
+                                 DEPRECATED checker, please use
+                                 "missingrgroup", "unusedrgroup",
+                                 "circularrgroup" instead.
+    :missingratom=[true|false]   missing R-atom definition
+    :missingrgroup=[true|false]  missing R-group definition
+    :selfreference=[true|false]  self reference errors in R-group definitions
+  ringstrainerror                detect small rings with trans or cumulative
+                                 double bonds, or triple bond
+  solvent                        detect common solvents appearing
+                                 by a main component
+  staratom                       detect star atoms
+  stereocarebox                  detect stereo search markers on double bonds
+  straightdoublebond             detect undefined double bond stereo layout
+  substructure:[smarts]          detect the given SMARTS structure
+                                 as a substructure in the original molecule
+  unbalancedreaction             detect reactions with orphan atoms
+  unusedrgroup                   (deprecated) use unusedrgroupreference
+  unusedrgroupreference          detect unused R-group definitions
+  valence                        (deprecated) use valenceerror
+  valenceerror                   detect valence errors
+  valenceproperty                detect atoms with all or specified
+                                 valence properties
+    :defaultvalence=[true|false]     default valence properties
+    :nondefaultvalence=[true|false]  non-default valence properties
+  wedge                          (deprecated) use wedgeerror
+  wedgeerror                     detect incorrect wedge bonds
+  wigglybond                     detect wiggly bonds on chiral centers
+  wigglydoublebond               detect non_stereo double bonds with wiggly
+                                 representation connected to a double bond
+</pre>
+<a href="#">Go to top</a>
+<h3><a class="anchor" id="fixers"></a>Avaliable fixer actions: <code>structurechecker -hf</code></h3>
+<pre>
+Valid fixer actions (strings) are:
+  addchiralflag             add chiral flag to the molecule
+  aliastoatom               remove aliases from atoms
+  aliastocarbon             (deprecated) use converttocarbon
+  aliastogroup              convert atoms with aliases to abbreviated groups
+                            if the alias is recognized
+  clean                     calculate 2D coordinates
+  clearabsstereo            (deprecated) use removeinvalidchiralflag
+  contractgroup             contract all abbreviated groups
+  converttoelementalform    convert isotopes into elemental atoms
+  converttocarbon           remove alias values from atoms and
+                            convert the atom to a carbon
+  converttoionicform        convert covalent counterions to ionic form
+  converttometalloceneform  convert non-standard metallocene representations
+  converttosingle           (deprecated) use converttosinglebond
+  converttosinglebond       convert faulty bonds to single bonds
+  converttowigglydoublebond convert non-stereo double bond represented by
+                            crossed double bond to wiggly bond representation
+                            into coordinated multicenter representation
+  crosseddoublebond         convert non-stereo double bond represented by
+                            wiggly bond to crossed double bond representation
+  crossedtowiggly           (deprecated) use converttowigglydoublebond
+  dearomatize               convert aromatic rings into Kekule form
+  expandgroup               expand all abbreviated groups if it is possible
+  fixmetallocene            converts metallocenes to coordinative multicenter layout
+  fixrgroupattachment       add missing attachments points to members
+                            with single location
+  fixunusedrgroups          delete unreferenced R-group definitions
+  fixvalence                correct valence problem by removing hydrogens
+                            or setting charges
+  mapmolecule               add atom maps to each atom of the molecule
+  mapreaction               add atom maps to the reaction
+  neutralize                remove charges from the molecule
+  partialclean              recalculate parts of the atom coordinates for 2D layout
+  pseudotogroup             convert pseudo atoms to abbreviated groups
+                            if pseudo label is a known abbreviated group
+  rearomatize               dearomatize the molecule and aromatize it again
+  removealias               remove alias values from atoms
+  removeatom                remove the problematic atoms from the molecule
+  removeatommap             remove atom map numbers
+  removeatomqueryproperty   remove atom query properties
+  removeatomvalue           remove atom values
+  removeattacheddata        remove data attached to atoms
+  removebond                remove problematic bonds from the molecule
+  removeexplicith           remove explicit hydrogens
+  removeinvalidchiralflag   remove the chiral flag
+  removeradical             convert radicals to non_radical atoms
+  removestereocarebox       remove stereo search markers from double bonds
+  removevalenceproperty     remove valence properties from atoms
+  removezcoordinate         set the z-coordinates of atoms to zero
+  ungroup                   ungroup all abbreviated groups
+  wedgeclean                recalculate the orientation of wedge bonds
+</pre>
+<a href="#">Go to top</a>
+
+<h2><a class="anchor" id="usage"></a>Usage</h2>
+
+<pre>structurechecker  -c &lt;config file&gt; -m [mode] [&lt;options&gt;] [input list]</pre>
+<p>The command line parameter <code>-c</code> or <code>--config</code> is 
+mandatory. This parameter specifies the configuration file path or a 
+<a href="http://www.chemaxon.com/jchem/doc/user/StandardizerConfiguration.html#actionstring">simple action string</a>.</p>
+<pre>structurechecker -c config.xml</pre> or 
+<pre>structurechecker -c "atomqueryproperty"</pre>  
+<p>Parameter <code>-m</code> or <code>--mode</code> specifies the 
+operation mode. The following operation modes are available:
+	<ul>
+		<li>check (default): searches for errors;
+		<pre>structurechecker -c config.xml -m check</pre></li>
+		<li>fix: fixes automatically fixable errors.
+		<pre>structurechecker -c config.xml -m fix</pre></li>
+	</ul>
+	<b>Note</b>: When a molecule import/export error occurs, the program 
+	continues to run. The error is written to the console, and the molecule is 
+	discarded from the results (i.e., the resulting output file contains less 
+	molecules than the input file).
+</p>
+<p><b>Note</b>: The syntax of commands can be different under various command 
+line shells (bash, tcsh, zsh, etc.). </p>
+	
+<h2><a class="anchor" id="input"></a>Input</h2>
+
+<p><code>structurechecker</code> accepts most molecular file formats as input 
+(<a href="../formats/formats.html">Marvin
+ Documents (MRV), MDL molfile, Sdfile, RXNfile, Rdfile, SMILES, etc.</a>).
+The input can be specified as: 
+<ul>
+<li>input file(s), </li>
+<li>input string(s), or </li>
+<li>SMILES (default).
+<pre>structurechecker -c config.xml -m check input.mrv</pre></li>
+</ul>
+<b>Note</b>: If neither the input file nor the input string is specified, the 
+standard input 
+(console) will be read.
+<pre>structurechecker -c config.xml -m check "OCC(O)C1OC(=O)C(O)=C1O"</pre>
+</p>
+<a href="#">Go to top</a>
+
+<h2><a class="anchor" id="output"></a>Output</h2>
+
+<p><code>structurechecker</code>'s output contains the file(s) of the checked/fixed molecules 
+and optionally a report of the results. The molecules are written to the output 
+file(s). The format of the output file(s) can be specified by the 
+<code>-f</code> or <code>--format</code> option (default format is: "smiles"). 
+The type of output is defined by the  <code>-t</code> or <code>--output-type</code> 
+parameter. The possible values of the output type are the following:
+<ul>
+<li><b>single</b> (default): all molecules are written to the file defined by the <code>--output</code> parameter. 
+If <code>--output</code> parameter is omitted, the result is written in the standard output (console). 
+(<code>--discarded</code> parameter is ignored in this case.)
+<li><b>separated</b>: valid and invalid molecules are written to two different files. The 
+<code>--output</code> parameter defines the output file of molecules with valid 
+structures, and the <code>--discarded</code> parameter defines the output file of
+molecules with invalid structures (or in fix mode, those which cannot be fixed automatically). 
+<ul>
+<li>If <code>--discarded</code> parameter is omitted, molecules with invalid structures are written to 
+standard output; 
+<li>If <code>--output</code> parameter is omitted, molecules with valid structures are 
+written to standard output;
+<p><b>Note</b>: The indication of <code>--output</code> or <code>--discarded</code> parameter is mandatory. 
+If none of these parameters
+ are defined, the program stops.</p></ul></li>
+<li><b>accepted</b>: only molecules with valid structures are written to file defined by the 
+<code>--output</code> parameter. If <code>--output</code> parameter is omitted, molecules with 
+valid structures are written to the standard output. (<code>--discarded</code> parameter is ignored in 
+this case)
+<li><b>discarded</b>: only molecules with invalid structures are written to the file defined by the 
+<code>--discarded</code> parameter.  If <code>�-discarded</code> parameter is omitted, molecules 
+with valid structures are written to the standard output. (<code>--output</code> parameter is ignored in
+ this case.) </ul>
+ The report of structure checking can be written either to a separate file, defined by 
+ the  <code>--report-file</code> parameter, or to the output file(s) as additional molecule property. The name of the 
+ property can be defined by the  <code>--report-property</code> parameter.
+ </p>
+<p>
+<b>Note</b>: Not all molecules with structure errors are discarded. When fix mode is selected, 
+molecules with automatically unfixable errors will be discarded only.
+</p>
+<a href="#">Go to top</a>
+
+<h2><a class="anchor" id="examples"></a>Usage examples</h2>
+
+<p>Below you can find the short descriptions of some examples.<br>
+If you want to check, fix, or filter structures in <code>evaluate</code> or JChem Cartridge, find examples <a href="structurechecker_examples.html">here</a>. </p>
+<ol>
+<li><pre>structurechecker -c "metallocene"</pre>
+Executes a check with configuration <i>metallocene</i> on the molecule(s) defined in the standard 
+input, and writes the result to the standard output (console);</li>
+<li><pre>structurechecker -c "bondLength" in.sdf</pre>
+Executes a check with configuration <i>bondLength</i> on the molecule(s) defined in the <code>in.sdf</code> file, and 
+writes the result to the standard output (console);</li>
+<li><code>structurechecker -c "isotope-&gt;converttoelementalform" in.sdf</code>
+Executes a check with configuration <i>isotope-&gt;converttoelementalform</i> on the molecule(s) defined 
+in the <code>in.sdf</code> file, and writes the result to the standard output (console);</li>
+<li><pre>structurechecker -c "aromaticity..valence" -m fix -f sdf -o out.sdf in.sdf</pre>
+Executes a fix with configuration <i>aromaticity</i> and <i>valence</i> on the molecule(s) defined in 
+the <code>in.sdf</code> file, and writes the molecules with valid structures (including automatically 
+fixed molecules) in <code>sdf</code> format to the  <code>out.sdf</code> output file;</li>
+<li><pre>structurechecker -c config.xml -t separated -o out.sdf -d discarded.sdf</pre>
+Executes a check with configuration contained by the <code>config.xml</code>, and writes the molecules with valid
+ structures to <code>out.sdf</code>, and writes the molecules with invalid structures to <code>discarded.sdf</code>.
+ <p><b>Note</b>: The format of both outputs is SMILES(!) as <code>--format (-f)</code> is not defined;</p></li>
+<li><pre>structurechecker -c config.xml -m fix -t separated -d discarded.sdf</pre>
+Executes a fix with configuration contained by the <code>config.xml</code>, and writes the molecules with invalid
+ structures to <code>discarded.sdf</code>, and writes molecules with valid structures to the standard output 
+ (console);</li>
+<li><pre>structurechecker -c config.xml -m fix -t discarded in.sdf</pre>
+Executes a fix with configuration contained by the <code>config.xml</code>, and writes the molecules with invalid
+ structures to <code>discarded.sdf</code>, and omits molecules with valid structures.</li>
+</ol>
+
+<center><div class="lenia">&nbsp;</div></center>
+
+<h3><a class="anchor" id="links"></a>Links</h3>
+	<table>
+			<tr>
+				<td><a href="checkerlist.html">List of available checkers</a></td>
+			</tr>
+			<tr>
+				<td><a href="structurechecker_examples.html">Examples of structure checking in various ChemAxon products</a></td>
+			</tr>
+			<tr>
+				<td><a href="structurechecker.html"><img src="images/gui/structure_checker_16.png" /> Structure Checker GUI</a></td>
+			</tr>			
+			<tr>
+				<td><a href="checker.html"><img src="images/gui/check-structure16.png" /> Structure Checker in MarvinSketch</a></td>
+			</tr>
+			<tr>
+				<td><a href="../developer/checker.html">Structure Checker Developer Guide</a></td>
+			</tr>
+		</table>
+<a href="#">Go to top</a>
+</p>
+
+<hr />
+
+</body>
+</html>

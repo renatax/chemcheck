@@ -1,0 +1,210 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../marvinmanuals.css"
+	title="Charge">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Calculation of Partial Charge Distribution</title>
+<meta name="keywords" content="partial charge distibution">
+<meta name="author" content="Szegezdi Jozsef">
+</head>
+<body>
+	<h1>Calculation of Partial Charge Distribution</h1>
+
+	<ul>
+		<li><a href="#Introduction">Introduction</a></li>
+		<li><a href="#Concept of Orbital Electronegativity">Concept
+				of Orbital Electronegativity</a></li>
+		<li><a href="#Examples for charge calculation">Examples of
+				Charge Calculation</a>
+		<ul>
+			<li><a href="#Example_1">Example 1</a></li>
+			<li><a href="#Example_2">Example 2</a></li>
+			<li><a href="#Example_3">Example 3</a></li>
+			<li><a href="#Example_4">Example 4</a></li>
+		</ul></li>
+		<li><a href="#References">References</a></li>
+	</ul>
+
+	<h2><a id="Introduction"></a>Introduction</h2>
+	<p>
+		Chemical bonds between atoms within a molecule consist of one or more
+		electron pairs distributed among the connected atoms. Bonding
+		electrons are not equally distributed among the atoms having different
+		electronegativity. 
+		<table>
+			<tr>
+				<td><img src="charge_files/AB_atoms1.png" width="337" height="205" alt="AB_atoms" /></td>
+				<td>In this case we can speak about partial charge of atoms. We will give the 
+				definition of partial charge intuitively rather than exactly. A simple definition of 
+				partial charge starts from a basic two-atom	model in which atoms A and B have different 
+				electron structures. In	the figure to the left, the &quot;boundary&quot; of the valence 
+				shell is denoted with blue and green solid lines. This boundary is chosen to create a 
+				fixed control volume with a definite probability (near to 100%) of finding all electrons 
+				belonging to the atom on the inside.</td>
+			</tr>
+			<tr>
+				<td><img src="charge_files/AB_atoms2.png" width="337" height="176" alt="AB_atoms" /></td>
+				<td>In the intermediate state the nuclear distance of A and B
+		decreases. As they draw closer to each other, each of their electron
+		clouds is polarized to a different degree. Although the electrons of
+		both A and B have partially moved outside of the control volume, this
+		effect is greater in atom B being the more polarizable atom. The more
+		polarizable an atom, the more electrons will flow out of its control
+		volume so that the atom will become more positive relative to its
+		initial state.</td>
+			</tr>
+			<tr>
+				<td><img src="charge_files/AB_atoms3.png" width="337" height="175" alt="AB_atoms" /></td>
+				<td>In the final state the two atoms reach the equilibrium nuclear
+		distance and the two electron clouds overlap. Using the control
+		volumes and electron clouds in the figure, atom B becomes more
+		positively charged and atom A becomes more negatively charged relative
+		to their initial states. In this way, partial charge of an atom in the
+		molecule is measured as a charge flow out of or into the atom's
+		control volume.</td>
+			</tr>
+		</table>
+	</p>
+
+	<h2><a id="Concept of Orbital Electronegativity"></a>Concept of orbital	electronegativity</h2>
+	<p>
+	Partial charge distribution of the molecule is governed by the orbital
+	electronegativity of the atoms contained in the molecule.
+	<br>The definition of orbital electronegativity of atoms in
+	molecules was first given by <a href="#ref1">Mulliken <sup>1</sup></a> by the following equation:
+	</p>
+	<p>
+		<font face="times new roman">&chi;<sub>&nu;</sub> = 0.5*(<em>I</em><sub>&nu;</sub>+<em>E</em><sub>&nu;</sub>)</font>
+	<!--<img src="charge_files/Mulliken_EN.png" width="143" height="28" alt="Mulliken" />-->
+	</p>
+	<p>
+	Where:
+	<ul>
+		<li><font face="times new roman">&chi;<sub>&nu;</sub></font><!--<img src="charge_files/EN_char.png" height="15" width="18" alt="Xv" />--> is the orbital 
+		electronegativity of the atom;</li>
+		<li><em>I</em><sub><font face="times new roman">&nu;</font></sub> is the ionization potential of the atom;</li>
+		<li><em>E</em><sub><font face="times new roman">&nu;</font></sub> is the electron affinity of the atom.</li>
+	</ul>
+	</p>
+	
+	<p>The orbital electronegativity of the molecule depends on the	hybrid state and partial charge 
+	of the atoms; see references <a href="#ref2">2</a> and <a href="#ref2">3</a>. Electronegativity 
+	is a quadratic function of partial charge given by the following equation:
+	</p>
+	<p>
+	<font face="times new roman">&chi;<sub>&nu;</sub></font> = <em>a</em>+<em>b</em><em>q</em>+<em>c</em><em>q</em><sup>2</sup>
+	<!--<img src="charge_files/Quad_EN.png" width="135" height="37" alt="quad" />-->
+	</p>
+	<p>Where:
+		<ul>
+			<li><em>q</em> is the partial charge on the atom;
+			<li><em>a</em>, <em>b</em>, and <em>c</em> are coefficients determined from 
+			<em>I</em><sub><font face="times new roman">&nu;</font></sub> and <em>E</em><sub><font face="times new roman">&nu;</font></sub>.</li>
+		</ul>
+	</p>
+	<p>Orbital electronegativity, and subsequently <a href="#ref4">partial charge <sup>4</sup></a> 
+	distribution of any	molecule is calculated iteratively.</p>
+
+	<h2><a id="Examples for charge calculation"></a>Examples of Charge Calculation</h2>
+	<h3><a id="Example_1"></a>Example 1</h3>
+	<p>
+		In benzene every carbon atom has the same electronegativity. This is
+		why the partial charge distribution is identical among the carbon
+		atoms. The total partial charge of the hydrogen atoms has the same
+		magnitude with opposite sign. The <font face="times new roman">&pi;</font>
+		partial charge is zero for all atoms of benzene. In our model, the
+		total charge is composed of two independent components - the pi and
+		sigma partial charges, which are determined by the pi and sigma bonds,
+		respectively.
+	</p>
+	<p>
+		Total charge and <font face="times new roman">&pi;</font> charge distribution of benzene:
+	</p>
+	<p>
+		<img src="charge_files/ben_sig.png" width="327" height="304" alt="Total charge distribution" />
+	&nbsp; &nbsp;
+	<img src="charge_files/ben_pi.png" width="327" height="304" alt="pi charge distribution" />
+	</p>
+	
+	<h3><a id="Example_2"></a>Example 2</h3>
+	<p>
+		In ring substituted benzene, the partial charge distribution
+		helps to predict the reactivity of the carbon atoms that are members
+		of the ring. If the substitute is electron-donating, the partial
+		charge increases in the <em>ortho</em> and <em>para</em> positions of the aromatic ring.
+		If the substitute is electron-withdrawing, partial charge decreases in
+		the <em>ortho</em> and <em>para</em> positions.
+	</p>
+	<p>
+		<table>
+			<tr>
+				<td><img src="charge_files/MeAC_ben.png" width="236" height="320" alt="MeAc" /></td> 
+				<td colspan="2">The figure on the left shows that the total partial charge reaches a maximum at 
+				the <em>meta</em> position relative to the other aromatic atoms due to the electron-withdrawing 
+				effect of methoxycarbonyl group.</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><img src="charge_files/anil.png" width="238" height="256" alt="" /></td>
+				<td>Since the amine group is electron releasing, the total partial charge reaches a 
+				maximum (relative to the other aromatic positions) at <em>ortho</em> and 
+				<em>para</em> positions.</td>
+			</tr>
+		</table>
+	</p>
+	<h3><a id="Example_3"></a>Example 3</h3>
+	<p>
+		The effects of substitution in five membered aromatic rings can
+		also be described with resonance structures:</p>
+	<table>
+		<tr>
+			<td><img src="charge_files/FM_ring.png" width="335" height="237" alt="FM_ring" /></td>
+			<td>All of these resonance structures contribute to the resulting
+		partial charge distribution. Here X represents any heteroatom and Y is
+		any electron-withdrawing substituent. Resonance structures reveal that
+		positive partial charge will be increased at the positions 1, 3 and 5.</td>
+		</tr>
+	</table>
+	</p>
+	<p>
+	Let Y stand for a methoxycarbonyl group and let X represent nitrogen.
+	The calculated partial charge distributions of methyl
+	1H-pyrrole-2-carboxylate and pyrrole are given below. The size of each
+	red spot represents the accumulated excess positive charge. From
+	resonance structures we would expect positive partial charge to
+	increase at positions 1, 3 and 5. This expected distribution agrees
+	with the calculated ones.
+	</p>
+	<p>
+		<img src="charge_files/FM_res.png" width="501" height="357" alt="FM_res" />
+	</p>
+	<h3><a id="Example_4"></a>Example 4</h3>
+	<p>Hydrocarbons usually have weak acidic character. Carbon atoms have different 
+				partial charges and ability to delocalize excess negative charge after the loss of a 
+				proton. The more positive partial charge accumulated on the carbon atom, the more 
+				acidic its character.
+		<table>
+			<tr>
+				<td><img src="charge_files/CH.png" alt="" /></td>
+				<td>From partial charge calculations, we find that all the carbon atoms	have negative 
+				partial charge except for the one indicated by a red arrow. The most acidic carbon 
+				atom at the tip of red arrow has partial charge of +0.0285 electron unit. This result 
+				agrees with the published result, see <a href="#ref5">reference 5</a>.</td>
+			</tr>
+		</table>
+	</p>				
+	<h2><a id="References"></a>References</h2>
+	<ol>
+		<li><a id="ref1"></a>Mulliken, R.S., <i>J. Chem. Phys.</i>, <b>1934</b>, <i>2</i>, 782; <a
+			href="http://dx.doi.org/10.1063/1.1749394">doi</a></li>
+		<li><a id="ref2"></a>McWeeny, R., <i>Coulson's Valence</i>, Oxford University Press, <b>1979</b></li>
+		<li><a id="ref3"></a>Dewar, M.J.S., <i>The Molecular Orbital Theory of Organic Chemistry</i>, McGraw-Hill, and
+			Inc., <b>1969</b></li>
+		<li><a id="ref4"></a>Gasteiger, J.; Marsili, M., <i>Tetrahedron</i>, <b>1980</b>, <i>36</i>, 3219; <a
+			href="http://dx.doi.org/10.1016/0040-4020(80)80168-2">doi</a></li>
+		<li><a id="ref5"></a>Stewart, R., <i>The
+				Proton: Applications to Organic Chemistry</i>, Academic Press, Inc., <b>1985</b>,
+			72</li>
+	</ol>
+</body>
+</html>

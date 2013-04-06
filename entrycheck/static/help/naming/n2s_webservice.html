@@ -1,0 +1,45 @@
+<!-- 
+    Document   : n2s_webservice.html
+    Created on : Novembre 30th, 2012
+    Author     : Daniel
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+	<meta HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<title>Name to Structure Webservice</title>
+  <link rel="stylesheet" type="text/css" href="../marvinmanuals.css">
+  </head>
+  <body>
+  
+  <h1>Using a custom webservice to extend name to structure</h1>
+
+<h3>Purpose</h3>
+
+It is possible to extend the name to structure conversion, for instance
+to support corporate IDs such as ABC0001234, or to make use of common name dictionaries
+in addition to the default one. By creating a webservice to do so, an organization can
+allow all its members to make use of the extended conversions.
+
+<h3>Configuration</h3>
+
+To start making use of a webservice, you need to know the URL of the service, which
+can be provided to you by your organization.
+In MarvinSketch or MarvinView, open the Edit/Preferences dialog from the menu bar, chose the Save/Load tab,
+then enter the URL in the "Name import service URL" field.
+
+When using the applet, the author of the page must configure the <code>namingWebServiceURL</code> parameter,
+as documented in the <a href="../developer/sketchman.html">applet configuration page</a>.
+
+<h3>Writing a webservice</h3>
+
+The request URL is constructed by appending the input name to the configured URL.
+The URL could for instance be <code>http://company.com/ws/n2s?input=</code> or
+<code>https://company.com/ws/n2s/</code>.
+ 
+The webservice can respond to the request with the structure in any format recognized by marvin,
+for instance smiles, InChI, SD file or mrv. It should respond with a 404 HTTP error if the input is
+not recognized as a known structure.
+
+</body>
+</html>

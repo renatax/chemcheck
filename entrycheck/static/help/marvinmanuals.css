@@ -1,0 +1,272 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #333333;
+	line-height: 150%;
+	background-color: #ffffff;
+}
+
+p {	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #333333;
+	line-height: 150%;
+}
+
+ol li {
+	list-style-type: decimal;
+	font-size: 13px;
+	color: #333333;
+	line-height: 150%;
+	margin: 2px 0px 2px 0px;
+}
+
+li ol li {
+	list-style-type: decimal;
+	line-height: 130%;
+}
+
+ul li {
+	list-style-type: disc;
+	font-size: 13px;
+	color: #333333;
+	line-height: 150%;
+	margin: 2px 0px 2px 0px;
+}
+
+li ul li {
+	list-style-type: circle;
+	line-height: 130%;
+}
+
+li ul li ul li{
+	list-style-type: square;
+	line-height: 130%;
+}
+
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #f2f8f8;
+	text-decoration: none;
+	border: solid 1px #077179;
+	background-color: #077179;
+}
+
+code, pre {
+        font-family: monospace;
+        font-size: 12px;
+}
+
+h1 {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	color: #077179;
+	background-color: #E4F1F1;
+    border: thin solid #cae4e4;
+	margin: 5px 0px 5px 0px;
+	padding: 3px 3px 3px 3px;
+	line-height: 150%;
+}
+
+h2 {
+	color: #077179;
+	font-size: 18px;
+    font-weight: bold;
+}
+
+h3, h3 li  {
+	color: #077179;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+h4 {
+	color: #077179;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+h5 {
+	color: #077179;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+}
+
+a.text {
+        text-decoration: none;
+        color: #333333;
+}
+
+a.text:active {
+        border-bottom: solid 0;
+        color: #333333;
+}
+
+a:link {
+	color: #6b6f40;
+	text-decoration: underline;
+	padding-bottom: 1px;
+}
+
+a:visited  {
+	color: #b1b681;
+	text-decoration: underline;
+	padding-bottom: 1px;
+}
+
+a:active  {
+	color: #6b6f40;
+	text-decoration: none;
+	padding-bottom: 1px;
+}
+
+body a.nounderline {
+border: 0 none;
+text-decoration: none;
+}
+
+em {
+    font-style: italic;
+}
+
+small {
+	font-size: 11px;
+	font-family: sans-serif;
+}
+
+address {
+    font-family: sans-serif;
+    font-size: 11px;
+    font-style: normal;
+}
+sub {
+    font-size: 75%;
+}
+sup {
+    font-size: 75%;
+}
+
+dd {
+	margin-bottom: 10px;
+}
+
+table {
+	font-size: 13px;
+}
+
+table.structurechecker {
+	font-size: 13px;
+    border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #077179;
+}
+
+table.structurechecker th {
+	font-weight: bold;
+	font-size: 13px;
+	background-color: #e4f1f1;
+}
+
+table.grid {
+	font-size: 13px;
+    border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #077179;
+}
+table.grid td, table.grid th {
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #077179;
+}
+
+table.grid th {
+	font-weight: bold;
+}
+
+table#grid {
+	font-size: 13px;
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #077179;
+}
+
+table#grid td, table#grid th {
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #077179;
+}
+
+table#grid th {
+	font-weight: bold;
+}
+
+table#no-grid, table#no-grid td, table#no-grid th {
+	border-width: 0;
+}
+
+table#colored {
+	font-size: 13px;
+	border: thin solid #077179;
+	background-color: #e4f1f1;
+}
+
+table.colored-grid {
+	font-size: 13px;
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #077179;
+	background-color: #e4f1f1;
+}
+
+table.colored-grid td, table.colored-grid th {
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #077179;
+}
+
+table.colored-grid th {
+	font-weight: bold;
+}
+
+table#colored-grid {
+	font-size: 13px;
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #077179;
+	background-color: #e4f1f1;
+}
+
+table#colored-grid td, table#colored-grid th {
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #077179;
+}
+
+table#colored-grid th {
+	font-weight: bold;
+}
+
+div.lenia {
+	text-align: center;
+	width: 80%;
+	height: 1px;
+	background-color: #077179;
+	margin: 10px 0px 5px 0px;
+	line-height: 1px;
+}
+
+div.clear {
+	clear: both;
+}
+		
+.floating {
+	float: left;
+}
+			
+.floating li {
+	width: 175px;
+}

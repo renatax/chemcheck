@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Reaction Entry</title>
+    	<link href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.css" rel="stylesheet">
+    	<style>.content {padding-top: 80px;}</style>
+    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    	<meta name="description" content="" />
+		<meta name="author" content="andrea cadeddu" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+    	
+    	
+	{% load bootstrap_toolkit %}    
+	{% load staticfiles %}	
+</head>
+<body>
+
+<script >
+//$(document).ready(function(){
+//$('H1').text("js working");
+//});
+//</script>
+
+<H1> New Reaction Entry</H1>
+<div class="container" >
+	<table>
+		<tr>
+			<td>
+				
+				<form class="form-vertical" action="" method=post>
+				{% csrf_token %}
+				{{form|as_bootstrap}}
+				
+				<div class="form-actions" >
+						<button type="refresh" class="btn btn-primary" name="test" onClick="history.go()">Test</button>
+				        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+				</div>
+				 
+				</form>
+					<strong>{{ form.non_field_errors }}</strong>
+			</td>
+			<td>
+				<div class='output'><p>
+				<h3>Test Output</h3>
+				{% autoescape off %}
+				{% if form.out != "" %} {{form.out}} {% else %}please enter a reaction {% endif %}
+				{% endautoescape %}
+				</p></div>
+				<div class='results'><p>
+				{% if form.fullreaction != "" %} {{form.fullreaction}} {% else %} {{form.stuff}} failed {% endif %}
+				</p></div>
+				<div class='tests'>
+				<p><h4>test1 - reactions:</h4><br>
+					<ul>{% for i in form.t1 %}
+      					<li>{{ i }}</li>
+    				{% endfor %}</ul>
+				</p>
+				<p><h4>test2 - reactions:</h4><br>
+				<ul>{% for i in form.t2 %}
+      					<li>{{ i }}</li>
+    				{% endfor %}</ul>
+    			</p>
+				<p><h4>test3 - reactions:</h4><br>
+				<ul>{% for i in form.t3 %}
+      					<li>{{ i }}</li>
+    				{% endfor %}</ul>
+    			</p>
+				</div>
+	
+	{% load staticfiles %}	
+    <script type="text/javascript" SRC="{{STATIC_URL}}marvin.js"></script>
+    <script type="text/javascript">
+    
+    //$(document).ready(function(){
+	//$('H1').text("marvin on!");
+	//});
+    
+    
+    var reactionsmartsdirty="|{{form.reaction.value}}"
+    var testd1="|{{form.t1.0}}"
+    var testd2="|{{form.t2.0}}"
+    var testd3="|{{form.t3.0}}"
+    
+    var reactionsmarts=reactionsmartsdirty.replace("&gt;&gt;",">>"); 
+	var test1=testd1.replace("&gt;&gt;",">>");
+	var test2=testd2.replace("&gt;&gt;",">>");
+	var test3=testd3.replace("&gt;&gt;",">>");
+	
+    marvin_jvm = "builtin"; // "builtin" or "plugin"
+    mview_begin("{{ STATIC_URL }}", 500, 800, true);
+    mview_param("rows",4)
+    mview_param("cols",1)
+    mview_param("visibleCols",1)
+    mview_param("visibleRows",4)
+    mview_param("border",1)
+    mview_param("layout",":2:1:M:1:0:1:1:c:b:1:1:L:0:0:1:1:c:n:0:1")
+	mview_param("param",":M:200:200:L:10b")  
+    mview_param("cell0", reactionsmarts );
+    mview_param("cell1", test1 );
+    mview_param("cell2", test2 );
+    mview_param("cell3", test3 );
+    
+    mview_end();
+
+    
+    </script>
+
+				
+			</td>
+		</tr>
+	</table>
+</div>
+
+</body>
+
+
+</html>

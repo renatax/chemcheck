@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<checkers>
+  <ExplicitHydrogenChecker bridgehead="false" charged="false" fixMode="ask" hconnected="false" isotopic="false" lonely="false" mapped="true" polymerendgroup="false" radical="false" sgroup="false" sgroupend="false" valenceerror="false" wedged="false"/>
+</checkers>

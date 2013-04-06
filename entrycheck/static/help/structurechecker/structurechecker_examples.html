@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="description" content="Examples of structure checking in various ChemAxon products">
+	<meta name="author" content="Viktoria Palfi">
+	<link rel="stylesheet" type="text/css" href="../structurechecker.css">
+	<meta name="keywords" content="example, Structure Checker, evaluate, filter, JChem cartridge, fixer">
+	<title>Examples of structure checking in various ChemAxon products</title>
+</head>
+<body>
+
+	<h1>Examples of structure checking in various ChemAxon products</h1>
+
+	<h2>Contents</h2>
+	<ul>
+		<li><a href="#intro">Introduction</a></li>
+		<li><a href="#structurechecker">Check structures in <code>structurechecker</code>
+				command-line
+		</a></li>
+		<li><a href="#evaluate">Check structures in Evaluator</a></li>
+		<li><a href="#jcc">Check structures in JChem Cartridge</a></li>
+		<li><a href="#table">Evaluator Reference table</a></li>
+		<li><a href="#links">Links</a></li>
+	</ul>
+
+	<h2>
+		<a id="intro"></a>Introduction
+	</h2>
+	<div>
+		<p>
+			The following examples demonstrate how to check/fix structures in
+			various ChemAxon products via the relevant commands and action string
+			defined checker/fixer configurations. Find the valid structure
+			checker action strings <a
+				href="http://www.chemaxon.com/marvin/help/structurechecker/checkerlist.html">online</a>,
+			or type
+			<code>structurechecker -hc</code>
+			for checker action strings and
+			<code>structurechecker -hf</code>
+			for fixer action strings in your preferred command-line interface.
+		</p>
+	</div>
+	<p>Remember the following tips in order to create a reliable
+		<em>Structure Checker</em> configuration when using action strings.</p>
+		<ol>
+			<li>Action string defined <em>Structure Checker</em> configuration has to
+				be specified between quotation marks (&quot;...&quot;).</li>
+			<!-- <li>Mind the order of action strings when working with multiple
+				checker/fixer actions as they are processed in the order of
+				definition.</li> -->
+			<li>Subsequent action strings must be separated by &quot;<strong>..</strong>&quot;.
+				Example:
+				
+					<pre>&quot;alias..radical..aromaticity&quot;</pre>
+					Comment:<br> This configuration in check mode searches for
+					atoms with alias information first, then for radical atoms, and
+					finally for aromaticity errors with default aromatization type
+					(general), as no checker option is indicated.
+				
+			</li>
+			<li>When a checker or fixer has further options, you can define
+				the wanted option(s) as a colon (:) disconnected list after the
+				checker (or fixer) action string. When no option(s) is defined,
+				default option will be used. Example:
+				
+					<pre>&quot;aromaticity:loose&quot;</pre>
+					<em>Structure Checker</em> searches only for <a
+						href="http://www.chemaxon.com/marvin/help/sci/aromatization-doc.html#loose">loose</a>
+					aromatic systems.
+				
+				
+					<pre>&quot;atomqueryproperty:R=true:a=true&quot;</pre>
+					<em>Structure Checker</em> searches only for &quot;ring count&quot; and &quot;aromaticity&quot;
+					type atom query properties.
+				
+				
+					<pre>&quot;atomqueryproperty:R=true:a=true..alias..aromaticity&quot;</pre>
+					<em>Structure Checker</em> searches only for ring count and aromaticity like
+					atom query properties, finds atoms with alias information, and
+					detects &quot;<a
+						href="http://www.chemaxon.com/marvin/help/sci/aromatization-doc.html#daylight_arom">general</a>&quot; 
+					aromatic systems (the option of aromaticity checker is &quot;general&quot; by
+					default).
+				
+			</li>
+			<li>You can set <strong>check</strong> or <strong>fix</strong>
+				mode to be performed.
+				<ul>
+					<li><strong>Check</strong> mode is suitable mostly for report
+						generation. The report provides information about the errors and
+						problems detected in molecules. In &quot;check&quot; mode, only
+						checker actions are taken into account; additional fixers will not
+						modify the checking behavior.</li>
+					<li>In <strong>fix</strong> mode, <em>Structure Checker</em> processes
+						molecules based on the set checker and fixer action strings.
+						Automatically fixable issues are modified according to the set
+						configuration.
+					</li>
+				</ul>
+			</li>
+			<li>First define the checker action string and then the relevant
+				fixer action string using the following schema: <code>
+					checkerActionString<strong>-&gt;</strong>fixerActionSting
+				</code>. <br/><strong>In fix mode, when no additional fixer action
+				string is defined after a checker action string, all fixers of the relevant checker
+				will be applied in priority order</strong>. <br />Example:
+				
+					<pre>&quot;abbrevgroup:contracted=true-&gt;expandgroup..alias-&gt;aliastogroup..staratom&quot; </pre>
+					In fix mode, <em>Structure Checker</em> searches for contracted abbreviated
+					groups and expands them then finds any aliases and converts them to
+					groups. Finally, <em>Structure Checker</em> searches for star atoms and applies fixer 
+					&quot;convert to carbon atoms&quot; as higher priority fixer. If fixer &quot;convert to carbon atoms&quot; 
+					has not solved the issue, the next fixer in line &quot;remove atom&quot; will be applied.
+				
+			</li>
+		</ol>
+	<hr />
+	<h2>
+			<a id="structurechecker"></a>Example: <code>structurechecker</code>
+			command-line
+		</h2>
+		<p>
+			To run a structure check, define your command as follows:
+			<code>
+				<b>structurechecker</b>
+			</code>
+			command followed by the <b>configuration</b> as
+			<code>
+				<b>xml</b>
+			</code>
+			file<b></b> or <b>action strings</b> and the structure to be checked.
+		</p>
+		<ol>
+			<li>
+			<pre>structurechecker -c <a
+							href="images/examples/configuration.xml">configuration.xml</a> <a
+							href="images/examples/strchk_input.mrv">strchk_input.mrv</a> -f mrv -o output.mrv -rp
+</pre>
+					Structure(s) of strchk_input.mrv is checked according to the
+					actions of configuration.xml. Output file is saved in <code>MRV</code> format as output.mrv and checker result is written to 
+					the propery fields of output file. 
+				</li>
+			<li>
+					<pre>structurechecker -c &quot;abbrevgroup:contracted=true..explicith:mapped=true:wedged=true&quot; strchk_input.mrv -f mrv -o output.mrv -rp 
+</pre>
+					<em>Structure Checker</em> finds only contracted abbreviated groups and any explicit
+					hydrogens, mapped, or wedged explicit hydrogens. Output file is saved in <code>MRV</code> format as output.mrv and checker result is written to 
+					the propery fields of output file.
+				</li>
+			<li>
+					<pre>
+structurechecker -c &quot;abbrevgroup:contracted=true-&gt;expandgroup..explicith:mapped=true:wedged=true&quot; strchk_input.mrv -m fix 
+</pre>
+Result: 
+<pre>[2H]C1=CC(C[C@H](C)CC(O)=O)=CC=C1</pre>
+					<em>Structure Checker</em> finds only contracted abbreviated groups and uses
+					&quot;expand group&quot; fixer on them and finds any explicit
+					hydrogens, mapped, or wedged explicit hydrogens and removes
+					them.
+				</li>
+		</ol>
+	
+	<div>
+	<h4>Chemical Terms language enable checking, fixing, or filtering
+			of structures according to a given action string configuration. Use
+			this feature in Evaluator or JChem Cartridge.</h4>
+	</div>
+	<h2>
+		<a id="evaluate"></a>Example: Check structures in
+		Evaluator
+	</h2>
+	<p>
+		The examples below demonstrate how to use structure checking in <a
+			href="http://www.chemaxon.com/marvin/help/chemicalterms/Evaluator.html">Chemical Terms Evaluator</a> command line tool (<code>evaluate</code>).
+		There are three modes to select in <code>evaluate</code>: check, fix, or filter
+		structures via the
+		<code>check()</code>
+		,
+		<code>fix()</code>
+		, or
+		<code>isValid()</code>
+		commands, respectively. Please, pay attention to the usage of single (') and double (&quot;) quotation marks around commands and configuration.
+	</p>
+	<h5></h5>
+	<ol>
+		<li><pre>evaluate -e &quot;check('explicith:mapped=true:lonely=true:wedged=true..substructure:[CH3]')&quot; &quot;[H]C1=C([H])C(C)=CC(=C1)N(=O)=O&quot; &quot;[H]C1=CC(C)=CC=C1&quot; &quot;CC1=CC(=CC=C1)N(=O)=O&quot; &quot;N1C=CC=C1&quot;</pre>
+			Result: <pre>failed, Explicit Hydrogen Checker: 2 explicit hydrogens found, Substructure Checker: 1 substructure found
+failed, Explicit Hydrogen Checker: 1 explicit hydrogen found, Substructure Checker: 1 substructure found
+failed, Substructure Checker: 1 substructure found
+passed</pre> Comment on the result: <br> <code>evaluate</code> checks the
+			input structures considering the actions strings, and returns the
+			following report:
+			<ul>
+				<li>&quot;failed&quot;: The set actions found structural issues during
+					scanning the input; when no issues are identified, the result is
+					&quot;passed&quot;;</li>
+				<li>Names of checkers that have found any issue separated by
+					commas (,);</li>
+				<li>The number of certain issue types.</li>
+			</ul></li>
+		<li><pre>evaluate -e &quot;fix('explicith:mapped=true:lonely=true:wedged=true..substructure:[CH3]&gt;&gt;[CH2]C')&quot; &quot;[H]C1=C([H])C(C)=CC(=C1)N(=O)=O&quot; &quot;[H]C1=CC(C)=CC=C1&quot; &quot;CC1=CC(=CC=C1)N(=O)=O&quot; &quot;N1C=CC=C1&quot;</pre>
+			Result: <pre>
+CCC1=CC(=CC=C1)N(=O)=O
+CCC1=CC=CC=C1
+CCC1=CC(=CC=C1)N(=O)=O
+N1C=CC=C1
+		</pre> <code>evaluate</code> returns the fixed structures based on the set fixer action
+			strings (&quot;remove explicit hydrogen&quot; and &quot;transform&quot;), or else the
+			original structure.</li>
+		<li><pre>evaluate -e &quot;isValid('explicith:mapped=true:lonely=true:wedged=true..substructure:[CH3]&gt;&gt;[CH2]C')&quot; &quot;[H]C1=C([H])C(C)=CC(=C1)N(=O)=O&quot; &quot;[H]C1=CC(C)=CC=C1&quot; &quot;CC1=CC(=CC=C1)N(=O)=O&quot; &quot;N1C=CC=C1&quot;</pre>
+			Result: <pre>
+false
+false
+false
+true
+</pre> <code>evaluate</code> returns false or true.
+			<ul>
+				<li>&quot;false&quot;: The set actions found structural issues during
+					scanning the input;</li>
+				<li>&quot;true&quot;: No issues were found during scanning the input.</li>
+			</ul></li>
+	</ol>
+	<hr />
+	<h2>
+		<a id="jcc"></a>Example: Check structures in JChem
+		Cartridge
+	</h2>
+	<p>
+		The examples below demonstrate how to use structure checking in <a
+			href="http://www.chemaxon.com/jchem/doc/dev/cartridge/index.html">JChem
+			Cartridge</a>. Please, pay attention to the usage of single (') and double (&quot;) quotation marks around commands and configuration.
+
+	</p>
+	In general:
+	<pre> select jc_evaluate_x('&lt;input_structure&gt;','chemTerms:check(&quot;aromaticity..valence..queryAtom..queryBond&quot;)') from dual;</pre>
+<ol>
+		<li>The following SQL query checks the structure for errors,
+			according to the configuration: 
+			<pre>select jc_evaluate('C[C](C)(C)(C)c1ccocc1', 'isValid(&quot;aromaticity..valence..queryAtom..queryBond&quot;)') from dual;</pre>
+			Returns 0 indicating that the structure is not valid, i.e., examined
+			molecule contains error(s) according to the configuration.
+		</li>
+		<li>The following SQL query checks the structure for errors,
+			according to the action string defined configuration, returns the
+			result (<code>passed</code>/<code>failed</code>) along with (in the
+			case of the structure is invalid) a short explanation why the
+			structure is invalid: 
+			<pre>select jc_evaluate_x('C[C](C)(C)(C)c1ccocc1', 'chemTerms:check(&quot;aromaticity..valence..queryAtom..queryBond&quot;)') from dual
+</pre> Returns: <pre>
+failed, Aromaticity Error Checker: 6 wrong aromatic bonds found, Valence Error Checker: 1 atom with valence problem found
+</pre>
+		</li>
+
+		<li><a id="jc_evaluate_x_fix_eg"></a>The following SQL queries
+			check the structure for errors, according to the configuration, and
+			then fix the errors:
+			
+			<pre>select jc_evaluate_x('[H]C1=C([H])C([H])=C([3H])C([2H])=C1[1H]',
+    'chemTerms:fix(&quot;explicitH-&gt;removeExplicitH..valence-&gt;fixValence..bondAngle-&gt;clean..atomMap..abbrevGroup-&gt;contractGroup&quot;)')
+    from dual
+</pre> Returns: 
+<pre>[1H]C1=C([2H])C([3H])=CC=C1</pre>
+As no further option of explicit hydrogen checker is set, fix mode removes only "simple" explicit hydrogens, isotopes are not removed.
+To remove isotopic hydrogen as well, select the <code>explicith:isotopic=true</code> option.
+
+<pre>select jc_evaluate_x('[H]C1=C([H])C([H])=C([3H])C([2H])=C1[1H]',
+    'chemTerms:fix(&quot;explicitH<strong>:isotopic=true</strong>-&gt;removeExplicitH..valence-&gt;fixValence..bondAngle-&gt;clean..atomMap..abbrevGroup-&gt;contractGroup&quot;)')
+    from dual
+</pre> returns: <pre>C1=CC=CC=C1</pre>
+
+		</li>		
+	</ol>
+	<hr />
+	<h3>
+		<a id="table"></a>Structure Checker Evaluator
+		Functions
+	</h3>
+	<table class="grid">
+		<tr>
+			<th style="width: 5%;">Name</th>
+			<th style="width: 5%;">License</th>
+			<th style="width: 25%;">Description</th>
+			<th style="width: 15%;">Return value</th>
+			<th style="width: 25%;">Parameters</th>
+			<th style="width: 25%;">Examples</th>
+		</tr>
+		<tr>
+			<td><a id="check"></a>check</td>
+			<td>-</td>
+			<td>checks the structure for errors, according to the
+				configuration</td>
+			<td>the error report</td>
+			<td>Structure checker/fixer configuration string</td>
+			<td>Molecule Context (All)<br />
+				<div id="checkmoleculecontextexample">
+					<code>check(&quot;aromaticity..valence&quot;)</code>
+					checks for aromaticity and valence errors, and returns the error
+					report
+				</div> Reaction Context (All)<br />
+				<div id="checkreactioncontextexample" style="display: none;">
+					<code>check(reactant(0), &quot;aromaticity..valence&quot;)</code>
+					checks for aromaticity and valence errors in first reactant, and
+					returns the error report
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><a id="fix"></a>fix</td>
+			<td>-</td>
+			<td>checks the structure for errors, according to the
+				configuration, and then fixes the errors</td>
+			<td>the fixed molecule</td>
+			<td>Structure checker/fixer configuration string</td>
+			<td>Molecule Context (All)<br />
+				<div id="fixmoleculecontextexample">
+					<code>fix(&quot;explicitH..isotope-&gt;converttoelementalform&quot;)</code>
+					searches for explicit hydrogens and isotopes, and removes them or
+					converts them to elemental form
+				</div> Reaction Context (All)<br />
+				<div id="fixreactioncontextexample" style="display: none;">
+					<code>fix(product(1),
+						&quot;explicitH..isotope-&gt;converttoelementalform&quot;)</code>
+					searches for explicit hydrogens and isotopes in second product, and
+					removes them or converts them to elemental form
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><a id="isvalid"></a>isValid</td>
+			<td>-</td>
+			<td>checks the structure for errors, according to the
+				configuration</td>
+			<td>true, if the structure is valid (has no errors), false
+				othervise</td>
+			<td>Structure checker/fixer configuration string</td>
+			<td>Molecule Context (All)<br />
+				<div id="isvalidmoleculecontextexample">
+					<code>isValid(&quot;aromaticity..valence&quot;)</code>
+					checks for aromaticity and valence errors, and returns if the
+					structure is valid
+				</div> Reaction Context (All)<br />
+				<div id="isvalidreactioncontextexample" style="display: none;">
+					<code>isValid(reactant(0), &quot;aromaticity..valence&quot;)</code>
+					checks for aromaticity and valence errors in first reactant, and
+					returns if it is valid
+				</div>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h2><a id="links"></a>Links</h2>
+		<table>
+			<tr>
+				<td><a href="checkerlist.html">List of available checkers</a></td>
+			</tr>
+			<tr>
+				<td><a href="structurechecker.html"><img src="images/gui/structure_checker_16.png" /> Structure Checker GUI</a></td>
+			</tr>
+			<tr>
+				<td><a href="checker.html"><img src="images/gui/check-structure16.png" /> Structure Checker in MarvinSketch</a></td>
+			</tr>
+			<tr>
+				<td><a href="structurechecker_cline.html"><img src="images/gui/structurechecker_cli16.png" /> <code>structurechecker</code> Command Line Tool</a></td>
+			</tr>			
+			<tr>
+				<td><a href="../developer/checker.html">Structure Checker Developer Guide</a></td>
+			</tr>
+		</table>
+    <hr />
+</body>
+</html>

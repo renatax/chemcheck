@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta NAME="description" CONTENT="R-group structures">
+<meta NAME="author" CONTENT="Erika Biro, Peter Szakacs">
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js">
+ </script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>R-group structures</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+
+<h1><a class="anchor" NAME="rgroup-structures">R-group structures</a></h1>
+
+<h2>Introduction</h2>
+An R-group structure describes a set of derivatives in one structure 
+(substitution variation). It is useful to define Markush-structures.
+
+<h2> Definitions </h2> 
+<ul>
+   <li>  <strong>R-atom:</strong> A special type of atom that connects to 
+        a base molecule as ligand and abbreviates one or more possible
+        structures. As there can be more than one R-atom in the same structure,         they can be marked with R1, R2, R3, etc.
+     </li>
+   <li> <a class="anchor" name="rgroot"> <strong>Root molecule or scaffold: 
+      </strong></a>
+        The molecule to which the R-atoms connects. Note the R-atoms are
+        part of of the root molecule as well.
+    <table border="0" cellspacing="0" cellpadding="5" class="grid" summary>
+     <tr>
+       <td align=center>
+         <img src="images/image066.png" width="108" height="120" alt>
+       </td>
+       <td align=center>
+         <img src="images/image067.png" width="169" height="119" alt>
+       </td>
+       <td align=center>
+         <img src="images/image068.png" width="189" height="99" alt>
+       </td>
+     </tr>
+     </table>
+         </li>
+   <li> <a class="anchor" name="rgroups">
+      <strong>R-group defintion: </strong> </a>
+        Lists of ligands that R-atoms abbreviate.
+      <table border="0" cellspacing="0" cellpadding="5" class="grid" summary>
+        <tr>
+          <td align=center><img src="images/image069.png" ></td>
+          <td align=center><img src="images/image070.png" ></td>
+        </tr>
+     </table>
+        </li> 
+   <li> <strong>R-group: </strong>The whole structure described above. 
+   That is the root molecule and the R-group definition. </li> 
+</ul>  
+
+<h2> Implementation </h2> 
+The core representation of R-group structures is the 
+<code>chemaxon.struc.RgMolecule</code> 
+class.
+
+<h3> Build an R-group  </h3>
+<h4> Create R-atoms and a root molecule </h4>
+ The core of the root molecule (<i>i.e.</i> the molecule without the R-atoms) 
+ can be built in a same way as any other MoleculeGraph object.
+ To create an R-atom, use the <code> MolAtom.RGROUP </code> constant in
+ the constructor of the MolAtom. Using the <code>MolAtom.setRgroup(int)</code>,
+ an ID can be set for the R-atom.
+ <pre class="sh_java">
+   MolAtom r1 = new MolAtom(MolAtom.RGROUP);
+   r1.setRgroup(1);
+ </pre>
+ Note, that R-atoms are MolAtom objects, hence they should be 
+ <a href=molatom.html#molatomAdd>added</a> to the root molecule.
+<h4> Create R-group  </h4> 
+ An RgMolecule object can be constructed with an empty constructor. Specify its
+ root molecule using the <code> RgMolecule.setRoot(MoleculeGraph) </code>
+ method.  
+ <pre class="sh_java">
+   RgMolecule rgMol = new RgMolecule();
+   rgMol.setRoot(root);
+ </pre>
+<h4> Create R-group definition </h4>
+ R-group definitions are <code> Molecule</code> objects. 
+ To define an R-group attachment point to one of its atoms use the 
+ <code> MolAtom.addRgroupAttachmentPoint(int, int)</code>. 
+ With the first integer the order of the attachment point is set, the second
+ one defines the <a href=molbond.html#bondtypes>bond type</a>. 
+ R-group definition should be added to the corresponding R-group using the
+ <code>Rgmolecule.addRgroup(int, Molecule)</code>. The integer parameter
+ shows to which R-atom the definition corresponds to.
+ <pre class="sh_java">
+   Molecule rg = MolImporter.importMol("O");
+   rg.getAtom(0).addRgroupAttachmentPoint(1, 1);
+   rgMol.addRgroup(1, rg);
+ </pre>
+
+ You may find a full example <a href="appendix.html#rgroup">here</a>.
+
+<h3> Access the root molecule and the R-group definition  </h3>
+<pre class="sh_java">
+	//get the root structure and enumerate the atoms, find R-Atoms.
+        Molecule root = rgmol.getRoot();
+        for (int i = root.getAtomCount() - 1; i &gt;= 0; --i){
+            MolAtom atom = root.getAtom(i);
+            if (atom.getAtno() == MolAtom.RGROUP){
+               ....
+            }
+        }
+     
+        //enumerate the R-group definitions and its fragments
+        int nr = rgmol.getRgroupCount();
+        for(int i = 0; i &lt; nr; ++i) {
+            int nrm = rgmol.getRgroupMemberCount(i);
+            for(int j = 0; j &lt; nrm; ++j) {
+        //    	.... do something with rgmol.getRgroupMember(i, j)  
+            }
+        }
+</pre>
+<p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ 
+ <table>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="moleculegraph.html">Molecule Graph</a>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="core_index.html"> Table of contents</a> 
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="sgroup.html">S-groups </a>
+      </p>
+     </td>
+   </tr>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;"> 
+        <i>Previous chapter</i> 
+       </p> 
+     </td>
+     <td width="250" valign="middle">
+         &nbsp;
+     </td>
+     <td width="250" valign="middle" >
+      <p style="text-align: center;">
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table>
+</body>
+</html>

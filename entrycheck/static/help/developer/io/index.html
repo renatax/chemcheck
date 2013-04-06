@@ -1,0 +1,86 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Judit Vasko-Szedlar and Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Input and output system</title>
+</head>
+<body onload="sh_highlightDocument();">
+
+<h1>Input and output system</h1>
+
+The input and output system of Marvin covers several possibilities to import and export structures,
+generate images, handle molecule properties, convert between various file formats, 
+create and add new custom formats  to the existing IO system.
+<h2>Table of contents</h2>
+
+<ul>
+  
+    <li><a href="supported_formats.html#formats">Supported formats</a>
+        <ul>
+            <li><a href="supported_formats.html#get_formats">Listing all available exportable formats programmatically</a></li>
+        </ul>
+    </li>
+    <li><a href="import.html#import">Import</a>
+        <ul>  
+        	<li><a href="import.html#sources">Sources of data</a></li>
+            <li><a href="import.html#import_api">Basic import using the API</a>
+                <ul>
+                    <li><a href="import.html#import_string">Importing from String</a></li>
+                    <li><a href="import.html#import_stream">Importing from InputStream</a></li>
+                    <li><a href="import.html#import_options">Importing options</a></li>
+                    <li><a href="import.html#import_multi">Importing a multi-molecule file</a></li>
+                    <li><a href="import.html#accessing_a_molecule_directly">Accessing a molecule directly</a></li>
+                    <li><a href="import.html#import_withrecordreader">Importing with MRecordImporter</a></li>
+                    <li><a href="import.html#import_mrecord">Importing with MRecordReader</a></li>
+                    
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li><a href="export.html#export">Export</a>
+    	<ul>
+    		<li><a href="export.html#targets">Target of data export</a></li>
+    		<li><a href="export.html#export_api">Basic export using the API</a>
+    			<ul>
+    				<li><a href="export.html#export_string">Exporting to String</a></li>
+    				<li><a href="export.html#export_multiple_molecules">Exporting multiple molecules</a></li>
+    				<li><a href="export.html#export_options">Exporting options</a></li>
+    			</ul>
+    		</li>
+    	</ul>
+    </li>
+    <li><a href="image_generation.html#image_generation">Image generation</a></li>
+    <li><a href="molecular_prop.html#import_props">Importing and exporting molecular properties</a>
+    	<ul>
+    		<li><a href="molecular_prop.html#read_properties">Reading properties after import</a></li>
+    		<li><a href="molecular_prop.html#collect_properties">Collecting property keys</a></li>
+			<li><a href="molecular_prop.html#add_properties">Adding and exporting properties</a></li>
+			
+			
+    	</ul>
+    </li>
+    <li><a href="molecule_converter.html#molecule_converter">Molecule converter</a>
+    	<ul>
+    		<li><a href="molecule_converter.html#simple_conversion">Simple conversion</a></li>
+			<li><a href="molecule_converter.html#splitting_conversion">Splitting multi-molecule input</a></li>
+			<li><a href="molecule_converter.html#merging_conversion">Merging more molecules</a></li>
+    	</ul>
+    </li>
+    <li><a href="own_format.html#creating_your_own_format">Integrating your own format</a>
+    	<ul>
+    		<li><a href="own_format.html#create_format_metadata">File format metadata for your own format</a></li>
+			<li><a href="own_format.html#create_format_exporter">Exporter for your own format</a></li>
+			<li><a href="own_format.html#create_format_importer">Importer for your own format</a></li>
+			<li><a href="own_format.html#create_format_recordreader">Record reader for your own format</a></li>
+			<li><a href="own_format.html#create_format_recognizer">Recognizer for your own format</a></li>
+    	</ul>
+    </li>
+</ul>
+
+
+</body>
+</html>

@@ -1,0 +1,171 @@
+<html>
+<head>
+<script type="text/javascript" src="../../../examples/sh_main.js"></script>
+<script type="text/javascript" src="../../../examples/sh_java.js"></script>
+<script type="text/javascript" src="../../../examples/sh_javascript.js"></script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+<meta NAME="author" CONTENT="Erika Biro and Peter Csizmadia">
+<link REL ="stylesheet" TYPE="text/css" HREF="../../marvinmanuals.css" TITLE="Style">
+<title>Creating your own formats</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+ 
+<h1><a name="creating_your_own_format" class="anchor">Integrating your own format</a></h1>
+The API of Chemaxon IO allows you to implement your own format and to add it to the existing framework.
+The following steps are needed:
+<ul>
+<li>Creating file format metadata for your own format.</li>
+<li>Creating exporter for your own format.</li>
+<li>Creating importer for your own format.</li>
+<li>Creating record reader for your own format.</li>
+<li>Creating format recognizer for your own format.</li>
+</ul>
+A complete example code is available to demonstrate this: 
+<ul>
+<li>Creating file format metadata: 
+<a href="../../../examples/io/myformat/myio/Init.java"><code>Init.java</code></a>
+
+</li>
+<li>Creating exporter:
+<a href="../../../examples/io/myformat/MyExporter.java"><code>MyExporter.java</code></a>, <a href="../../../examples/io/myformat/myio/MyFormatExport.java"><code>MyFormatExport.java</code></a>
+</li>
+<li>Creating importer:
+<a href="../../../examples/io/myformat/MyImporter.java"><code>MyImporter.java</code></a>, <a href="../../../examples/io/myformat/myio/MyFormatImport.java"><code>MyFormatImport.java</code></a>
+</li>
+<li>Creating record reader:
+<a href="../../../examples/io/myformat/myio/MyFormatRecognizer.java"><code>MyFormatRecognizer.java</code></a>
+</li>
+<li>Creating format recognizer:
+<a href="../../../examples/io/myformat/myio/MyFormatRecordReader.java"><code>MyFormatRecordReader.java</code></a>
+</li>
+</ul>
+
+<h3><a name="create_format_metadata"> Creating file format metadata for your own format</a></h3>
+Creating the metadata includes specifying file extension, importer, exporter, record reader, format recognizer and some format features like atomic coordinates, multiple records storage possibility.
+<pre class="sh_java">	
+	MYFORMAT = new MFileFormat(
+	    "My Format", // format description
+	    "myformat", // format name
+	    null, // no MIME type
+	    "myformat myf", // file extension
+	    "MyFormatRecordReader", // record reader class
+	    "MyFormatImport",  // import module implementation
+	    "MyFormatExport", // export module implementation
+	    "MyFormatRecognizer 10", // recognition class with priority specification
+	    MFileFormat.F_IMPORT | MFileFormat.F_EXPORT | MFileFormat.F_RECOGNIZER
+	    | MFileFormat.F_MOLECULE | MFileFormat.F_COORDS
+	    | MFileFormat.F_MULTIPLE_RECORDS_LEGAL
+	    | MFileFormat.F_MULTIPLE_RECORDS_POSSIBLE);
+</pre>
+<p>For a complete source code, please see <a href="../../../examples/io/myformat/myio/Init.java"><code>Init.java</code></a></a>.</p>
+After this step the format is registered by:
+<pre class="sh_java">	
+	MFileFormatUtil.registerFormat(Init.MYFORMAT);
+</pre>
+
+
+<h3><a name="create_format_exporter">Creating exporter for your own format</a></h3>
+In order to create your own format exporter you need to implement the <code>convert()</code> method of <code>chemaxon.marvin.io.MolExportModule</code> which is the 
+abstract base class of molecule export modules. The <code>convert()</code> might return String or byte array or image object. 
+Optionally, you can implement the <code>open(String fmtopts)</code> and <code>close()</code> methods also. 
+The overriding <code>open(String fmtopts)</code> method opens the exporter stream and should call <code>super.open(fmtopts)</code> at the beginning.
+In case of some multi-molecule formats such as RDfile, files begin with a header. 
+This header must be returned by <code>open()</code>, either as a String object or a byte[] array.
+The <code>close()</code> method is called after the last <code>convert()</code> to close the stream if needed.
+<p>For a complete source code, please see <a href="../../../examples/io/myformat/myio/MyFormatExport.java"><code>MyFormatExport.java</code></a></a>.</p>
+
+<pre class="sh_java"></pre>
+<h3><a name="create_format_importer">Creating importer for your own format</a></h3>
+The <code>MolImportModule</code> is the base class of Molecule import modules.
+The two basic abstract methods are the <code>createMol()</code> which creates a new target molecule object and the <code>readMol(Molecule mol)</code> which reads a molecule from the file.
+<p>For a complete source code, please see <a href="../../../examples/io/myformat/myio/MyFormatImport.java"><code>MyFormatImport.java</code></a></a>.</p>
+
+<pre class="sh_java"></pre>
+<h3><a name="create_format_recordreader">Creating record reader for your own format</a></h3>
+Record is a string (or byte representation) of a single molecule with properties in a multi-molecule file.
+Record reading is faster than reading into molecule objects and makes property pre-reading possible.
+If you would like to use record reading you have to implement the MRecordReader interface. <code>MPropHandler</code> helps the property pre-reading.
+<pre class="sh_java"></pre>
+<p>For a complete source code, please see <a href="../../../examples/io/myformat/myio/MyFormatRecordReader.java"><code>MyFormatRecordReader.java</code></a></a>.</p>
+
+<h3><a name="create_format_recognizer">Creating format recognizer for your own format</a></h3>
+Sometimes it is useful to implement the format recognition 
+for your own format to detect the input format from the content of the structure file 
+in order to import the structure file without file format specification parameter.
+The implementation of the <code>tryToRecognize()</code> and <code>needsMore()</code> from the <code>Recognizer</code> interface is needed. This functionality is just optional.
+<p>For a complete source code, please see <a href="../../../examples/io/myformat/myio/MyFormatRecognizer.java"><code>MyFormatRecognizer.java</code></a></a>.</p>
+
+<pre class="sh_java"></pre>
+
+<p>This picture illustrates how the classes related to your own format connect to the existing framework:</p>
+<img SRC="graphics6.png" WIDTH=1236 HEIGHT=288>
+<p>General overview of IO classes in the existing framework:</p>
+<img SRC="allclasses.jpg" WIDTH=621 HEIGHT=946> 
+<p>Behavior of IO classes in the existing framework:</p>
+<ul>
+    <li>RecognizerList:</li>
+    List of format recognizers. 
+    Used by the recognizer class to specifiy the possible formats detected during the format recognition.
+    <li>Recognizer: 
+    File format recognizer base class. Tries to check the possible formats checking the input line by line.</li>
+    <li>MRecord: Representations of a record where a record is a string (or byte representation) 
+    of a single molecule with properties in a multi-molecule file.</li>
+    <li>MRecordReader: Interface for record reading, AbstractMRecordReader is a basic implementation which 
+    is further exteded by the specific import types.</li>
+    <li>AbstractMRecordReader: Abstract record reader class.
+	It is able to read lines and to create line number mappings for the records. </li>
+    <li>MolConverter:
+    Converts between molecule file formats, allows simple conversion, splitting and merging structures.</li>
+    <li>MolImporter: Molecule file importer.
+   	The input file format is guessed automatically or specified as an import
+   	option to the constructor. 
+   	For more information on supported formats, please visit
+   	<a href="../../formats/formats.html">File Formats in Marvin</a>.</li>
+    <li>MolExporter:  Molecule exporter class.
+    The output file format can be specified as an argument to the constructor
+    of this class. For more information on supported formats, please visit
+   	<a href="../../formats/formats.html">File Formats in Marvin</a>.</li>
+    </li>
+    <li>MFileFormat: Collection of file format descriptors.</li>
+    <li>MFileFormatUtil: File format related utility functions like creating specific format export modules,
+    registering and handling new file formats.</li>
+    <li>MolInputStream: Molecule input stream that has the ability to determine the input file format.</li>
+    <li>MDocSource: Abstract molecule and document reader/importer class. </li>
+    <li>MRecordImporter: Record and structure reader used by MolImporter internally.</li>
+    <li>MolExportModule: Abstract base class of molecule export modules.
+    An export module for format "XXX" must have the name chemaxon.marvin.modules.XxxExport. 
+    Converted structures are returned as Strings or byte[] arrays.</li>
+    <li>MolImportModule: Abstract base class of Molecule import modules.</li>
+    <li>PositionedInputStream: Positioned input stream that has the ability 
+    to set / get the stream position as well as put back some parts already read.</li>
+    <li>SeekableInputStream: InputStream that makes possible to set the file-pointer offset position.</li>
+    <li>MolFormatException: Exception that is thrown in case of molecule file format detection failure and other problems which occured
+    during import.</li>
+    <li>MolExportException: Molecule export exception for export errors.</li>
+    <li>MRecordParseException: Exception for record reading errors.</li>
+</ul>
+
+<table summary="next pages">
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="molecule_converter.html">Molecule converter </a> <br>
+      		  <i>Previous chapter</i>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="index.html"> Table of contents</a> <br>
+       &nbsp;
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+      </p>
+     </td>
+   </tr>
+ </table> 
+
+</body>
+</html>

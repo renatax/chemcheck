@@ -1,0 +1,433 @@
+<!DOCTYPE HTML PUBLIC >
+<html>
+ <HEAD>
+   <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+   <title>MolAtom</title>
+   <script type="text/javascript" src="../../../examples/sh_main.js"></script>
+   <script type="text/javascript" src="../../../examples/sh_java.js"></script>
+   <script type="text/javascript" src="../../../examples/sh_javascript.js">
+      </script>
+<link REL ="stylesheet" TYPE="text/css" HREF="../../../examples/sh_nedit.css" TITLE="Style">
+
+        <link rel=stylesheet type="text/css" href="../../marvinmanuals.css">
+ </HEAD>
+
+ <body onload="sh_highlightDocument();" >
+ <h1>MolAtom</h1>
+ <p> 
+   The <code> chemaxon.struc.MolAtom</code> class is used to represent chemical
+   atoms. To create a MolAtom object, one of these constructor methods can
+   be used:
+   <ul>
+      <li> <code> MolAtom(int Z, double x, double y, double z); </code>
+      <li> <code> MolAtom(int Z, double x, double y); </code>
+      <li> <code> MolAtom(int Z); </code>
+   </ul> 
+   Here <code> int Z </code> is the atomic number; 
+   <code> double x</code>,
+   <code> double y</code>,
+   <code> double z</code>,
+   are the coordinates of the atom. If the coordinates are not given, they are
+   automatically set to zero. 
+   The atomic number can be specified using the constants in the static class,
+   <code>chemaxon.struc.PeriodicSystem</code>.
+ </p>
+ <p>  
+   Code example: Create an oxygen MolAtom object 
+   <pre class="sh_java">
+      MolAtom o = new MolAtom(PeriodicSystem.O);
+   </pre>
+ </p>
+
+ <p> <a class="anchor" NAME="molatomAdd"/>
+  If the constructed MolAtom object is supposed to be a part of MoleculeGraph
+  (or its subclasses), then it should be added to it using the 
+  <code>add(MolAtom) </code> method:
+  <pre class="sh_java">
+    molecule.add(o);
+  </pre>
+ </p>
+
+ <p>
+   The following table summerizes if the properties of the MolAtom have
+   <code> set </code> or
+   <code> get </code> methods. 
+ </p>
+   <p style="text-align: left; margin: 0px 0px 8px 0px;">
+   <span style="font-size: 10pt; color: #000000;">&nbsp;</span></p>
+  <div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; 
+              margin: 0px 0px 0px 0px;">
+  <table class="table styles2" cellspacing="0" cellpadding="4" border="0" 
+         style="border: none; border-spacing:0px; border-collapse: collapse;">
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="top" width="148" bgcolor="#e6e6e6" 
+       style="width:148px; background-color:#e6e6e6; border: solid 1px 
+             #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+    <span style="font-family: 'Arial'; font-weight: bold;">property</span></p>
+   </td>
+   <td valign="top" width="30" bgcolor="#e6e6e6" 
+       style="width:30px; background-color:#e6e6e6; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+   <span style="font-family: 'Arial'; font-weight: bold;">set </span></p>
+   </td>
+   <td valign="top" width="45" bgcolor="#e6e6e6" 
+       style="width:45px; background-color:#e6e6e6; border: solid 1px #c0c0c0;">
+    <p style="text-align: center;"><span style="font-family: 'Arial';
+               font-weight: bold;">get</span></p>
+   </td>
+   <td valign="top" width="175" bgcolor="#e6e6e6" 
+       style="width:175px; background-color:#e6e6e6; border: solid 1px 
+              #c0c0c0;">
+    <p style="text-align: center;"><span style="font-family: 'Arial'; 
+              font-weight: bold;">note</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="middle" width="148" 
+       style="width:148px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Index</span></p>
+   </td>
+   <td valign="middle" width="30" 
+       style="width:30px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';"> <b>&#215;</b>  </span></p>
+   </td>
+   <td valign="middle" width="45" 
+       style="width:45px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="175" 
+       style="width:175px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Arial';">assigned automatically</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="middle" width="148" bgcolor="#f3f3f3" 
+       style="width:148px; background-color:#f3f3f3; 
+              border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Bonds</span></p>
+   </td>
+   <td valign="middle" width="30" bgcolor="#f3f3f3" 
+       style="width:30px; background-color:#f3f3f3; 
+              border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="45" bgcolor="#f3f3f3" 
+       style="width:45px; background-color:#f3f3f3; border: 
+              solid 1px #c0c0c0;">
+      <p style="text-align: center;">
+      <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="175" bgcolor="#f3f3f3" 
+       style="width:175px; background-color:#f3f3f3; 
+              border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-size: 10pt; font-family: 'Arial'; 
+                  color: #000000;">&nbsp;</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="middle" width="148" 
+       style="width:148px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Atomic number, type</span></p>
+   </td>
+   <td valign="middle" width="30" 
+       style="width:30px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="45" 
+       style="width:45px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="175" 
+       style="width:175px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-size: 10pt; 
+                  font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" bgcolor="#f3f3f3" 
+        style="width:148px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Atomic mass</span></p>
+    </td>
+    <td valign="middle" width="30" bgcolor="#f3f3f3" 
+        style="width:30px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" bgcolor="#f3f3f3" 
+        style="width:45px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" bgcolor="#f3f3f3" 
+        style="width:175px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> &nbsp; </span></p>
+    </td>
+   </tr>
+  <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" 
+        style="width:148px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Radical</span></p>
+    </td>
+    <td valign="middle" width="30" 
+        style="width:30px; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" 
+        style="width:45px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" 
+        style="width:175px; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> &nbsp; </span></p>
+    </td>
+   </tr>
+   <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" bgcolor="#f3f3f3" 
+        style="width:148px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Charge</span></p>
+    </td>
+    <td valign="middle" width="30" bgcolor="#f3f3f3" 
+        style="width:30px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" bgcolor="#f3f3f3" 
+        style="width:45px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" bgcolor="#f3f3f3" 
+        style="width:175px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> &nbsp; </span></p>
+    </td>
+   </tr>
+  <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" 
+        style="width:148px;
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Coordinates</span></p>
+    </td>
+    <td valign="middle" width="30" 
+        style="width:30px; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" 
+        style="width:45px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" 
+        style="width:175px; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> &nbsp; </span></p>
+    </td>
+   </tr>
+  <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" bgcolor="#f3f3f3" 
+        style="width:148px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Atomic map</span></p>
+    </td>
+    <td valign="middle" width="30" bgcolor="#f3f3f3" 
+        style="width:30px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" bgcolor="#f3f3f3" 
+        style="width:45px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" bgcolor="#f3f3f3" 
+        style="width:175px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> &nbsp; </span></p>
+    </td>
+   </tr>
+   <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" 
+        style="width:148px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Alias string</span></p>
+    </td>
+    <td valign="middle" width="30" 
+        style="width:30px; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" 
+        style="width:45px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" 
+        style="width:175px; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> &nbsp; </span></p>
+    </td>
+   </tr>
+   <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" bgcolor="#f3f3f3" 
+        style="width:148px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Valence</span></p>
+    </td>
+    <td valign="middle" width="30" bgcolor="#f3f3f3" 
+        style="width:30px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" bgcolor="#f3f3f3" 
+        style="width:45px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" bgcolor="#f3f3f3" 
+        style="width:175px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> calculated </span></p>
+    </td>
+   </tr>
+   <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" 
+        style="width:148px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';"> Implicit hydrogen count</span></p>
+    </td>
+    <td valign="middle" width="30" 
+        style="width:30px; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" 
+        style="width:45px; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" 
+        style="width:175px; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> calculated </span></p>
+    </td>
+   </tr>
+   <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" bgcolor="#f3f3f3" 
+        style="width:148px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Hybrization</span></p>
+    </td>
+    <td valign="middle" width="30" bgcolor="#f3f3f3" 
+        style="width:30px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" bgcolor="#f3f3f3" 
+        style="width:45px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" bgcolor="#f3f3f3" 
+        style="width:175px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';"> calculated separately </span></p>
+    </td>
+   </tr>
+ </table></div>
+
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <table>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="moleculegraph.html">Molecule Graph</a>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="core_index.html"> Table of contents</a> 
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="molbond.html">MolBond</a>
+      </p>
+     </td>
+   </tr>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;"> 
+        <i>Previous chapter</i> 
+       </p> 
+     </td>
+     <td width="250" valign="middle">
+         &nbsp;
+     </td>
+     <td width="250" valign="middle" >
+      <p style="text-align: center;">
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table>
+</body>
+</html>

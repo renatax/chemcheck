@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "custom.css" %}" />
+    <title>Reaction Entries</title>
+</head>
+
+<body>
+<header>
+    <h1>Reaction Entries</h1>
+</header>
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

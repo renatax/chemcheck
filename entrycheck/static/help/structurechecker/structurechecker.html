@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta name="description" content="ChemAxon's Structure Checker">
+	<meta name="author" content="Viktoria Palfi">
+	<link rel="stylesheet" type="text/css" href="../structurechecker.css">
+	<meta name="keywords" content="Structure Checker, GUI, fixer, profile, automatic">
+	<title>Structure Checker Application</title>
+</head>
+<body>
+
+<h1>Structure Checker</h1>
+<center>
+<h3>Version 5.12.1</h3>
+</center>
+<h5>Find the user guide of Structure Checker GUI version 5.10.4 or earlier at a different location. <a href="http://www.chemaxon.com/jchem/doc/user/structurechecker.html">Click here to visit the old site</a>. </h5>
+<h2>Contents</h2>
+
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#listofcheckers">Available checkers</a></li>
+            <li><a href="#gui">Structure Checker Graphical User Interface (GUI) 
+			user guide</a>
+				<ul>
+					<li><a href="#step1">Select input files</a></li>
+					<li><a href="#step2">Create checklist</a></li>
+					<li><a href="#step3">Set  options</a></li>
+					<li><a href="#step4">Specify output</a></li>
+					<li><a href="#step5">Run Structure Checker</a></li>
+					<li><a href="#preferences">Preferences</a></li>
+					<li><a href="#profile">Profiles</a></li>				
+				</ul>
+			</li>
+            <li><a href="#links">Links</a>
+				<ul>
+					<li><a href="checkerlist.html" target="_blank">Available checkers</a></li>
+					<li><a href="structurechecker_cline.html" target="_blank"><code>structurechecker
+					</code> Command-Line Tool</a></li>
+					<li><a href="checker.html" target="_blank">Structure Checker in MarvinSketch</a></li>
+					<li><a href="structurechecker_examples.html" target="_blank">Examples of structure checking in various ChemAxon products</a></li>
+					<li><a href="../developer/checker.html" target="_blank">Structure Checker 
+					Developer Guide</a></li>
+				</ul>
+			</li>
+       </ul>
+
+<h2><a class="anchor" id="intro"></a>Introduction</h2>
+
+<p>
+<em>Structure Checker</em> is a chemical validation tool detecting and fixing common 
+structural errors or special features that can be potential sources of problems. 
+<em>Structure Checker</em> wizard is a desktop application for the batch checking and 
+fixing structures of input file(s). Your large files (like SDfiles) are scanned 
+for drawing errors or features you want or don't want to include in the output file. 
+This application offers manual operation mode displaying the compounds having 
+errors and allowing the manual modification. Additionally, automatic fixers are 
+provided for many types of issues, and a validation report can be generated as 
+well. For the more comfortable usage of <em>Structure Checker</em>, "Profile manager" is 
+available to customize every step of the wizard. 
+</p>
+<h2><a class="anchor" id="listofcheckers"></a>Available checkers</h2>
+
+<p>
+See the detailed 
+<a href="checkerlist.html">list of available checkers</a>.
+</p>
+<h2><a class="anchor" id="gui"></a>Structure Checker Graphical User Interface 
+(GUI) user guide</h2>
+
+<p>
+<b>General layout</b>
+<p>
+ <img src="images/gui/layout.png" width="800" height="600" alt="Structure Checker"/>
+</p>
+</p>
+<p>
+This chapter gives you a simple walkthrough of the usage of <em>Structure Checker</em> application. The major steps are demonstrated on the screenshots of every page of the 
+checking routine. 
+</p>
+<ol>	
+	<li><a class="anchor" id="step1"></a><b>Select input files:</b> 
+		<p>
+		<img src="images/gui/screen1.png" width="793" height="201" alt="select input file"/>
+		</p>
+		<p>
+		In this step you define the files to be checked and fixed. Click on 
+		the <b>Browse</b> button on the right side to add files one by one; 
+		click on <b>Add more files</b> to add further files or multiple files at
+		a time. Select one or more files (Shift or Ctrl + mouse click) and click
+		Open. You can add unlimited number of files but remember, the output 
+		will be written to only one file.
+		</p> 
+		<p>
+		To remove a file from the list, click on 
+		<img src="images/gui/removefile.png" width="27" height="27" alt="remove file"/> button in line 
+		with file. 
+		</p>
+		<p>
+		Click <b>Next</b> to proceed to the next step.
+		</p>
+	</li>
+	<li><a class="anchor" id="step2"></a><b>Create checklist:</b>
+		<ul>
+			<li>
+			<img src="images/gui/actionlist.png" width="791" height="402" alt="create checklist"/> 
+		<p>
+		In this screen you can see two panels. On the left, all available 
+		checkers are listed in alphabetical order. For creating your checklist, 
+		select the actions you want to perform and click the <b>Add</b> button 
+		to transfer it to your checklist, i.e., into the right panel.
+		</p> 
+		<p>
+		Removal of any element from the list is similarly easy: click
+		the item(s) in the right panel first, then the <b>Remove</b> button between the 
+		two panels. Click on <b>Clear</b> at the bottom of right panel if 
+		you want to remove all elements from the list. 
+		</p>
+		</li>
+		<li>
+		<img src="images/gui/arrange.png" width="372" height="221" alt="arrange list"/>
+		<p>
+		You can create an ordered list of checkers by moving the selected 
+		item(s) with the up or down arrow next to the right panel.
+		</p>
+		</li>
+		<li>
+		<img src="images/gui/saveconfig.png" width="329" height="58" alt="save confiuration"/>
+		<p>
+		If you'd like to use the set checking configuration later, you can export it to 
+		a configuration file by clicking the <b>Export</b> button. Browse the 
+		location and name the file in the <i>Save</i> dialog window.
+		</p> 
+		<p>
+		If you want to remove all elements from the checklist, click on <b>Clear</b> at the bottom of right panel. 
+		</p>
+ 		<p>
+		To load a configuration file located on your computer, click the <b>Import</b> button. 
+		Browse the location in the <i>Open</i> dialog window and click <strong>Open</strong>.
+		</p>
+		<p>
+		To load a configuration file from an internet source, click the <b>URL</b> button. 
+		Enter the URL in the <i>Input</i> dialog window and click <strong>OK</strong>.
+		</p>
+		</li>
+		<li>
+		<img src="images/gui/checker_options.png" width="358" height="122" alt="set checker option"/>
+		<p>
+		Some checkers have options to refine the issue detection. These 
+		options appear when you click on the checker in the right panel of the 
+		configuration page.
+		</p>
+		<p>
+		Fixer can also be configured for each checker, i.e., what to do when an 
+		issue is found. Apart from <b>Manual fix</b> and keeping the compounds 
+		unfixed, <b>Do not fix</b>, one or more automatic fixers are also 
+		available as <b>Fix</b> option.
+		</p>
+		</li>
+		</ul>		
+		<p>
+		Click <b>Next</b> to proceed.
+		</p>
+	</li>
+
+	<li><a class="anchor" id="step3"></a><b>Set  options:</b>
+		<p>
+		<img src="images/gui/screen3.png" width="791" height="569" alt="set options"/>
+		</p>
+		
+		<p>
+		<b>Operation mode</b>
+		<ul>
+			<li><b>Check:</b> validates structures without any modifications. 
+			This operation mode is recommended for report generation only.</li>
+			<li><b>Manual:</b> all issues are displayed for manual acceptance or
+			modification regardless of the individual settings. It gives total 
+			manual control of the validation process.</li>
+			<li><b>Automatic:</b> recommended for fully automatic batch fix, it 
+			does not require manual operation. In this operation mode, <em>Structure Checker</em> 
+			will apply the fixers of a checker in priority order until the found issue will be fixed;
+			unfixable structures are not modified. Fixers of each checker are listed in a preset logical order of priority on page <a href="checkerlist.html">List of available checkers</a>.</li>
+			<li><b>Fix:</b> issues are fixed according to the configuration of 
+			the actions. When manual fix was set for a given checker or a 
+			problem cannot be fixed, the structure is displayed for manual fixing. 
+			This operation mode is recommended for routine file checkups.</li>
+		</ul>
+		</p>
+		<p>
+		<b>Report options</b>
+		</p>
+		<p>
+		Each error and issue is recorded in the report logged during the 
+		checking and fixing procedure.
+		<ul>
+			<li><b>No report:</b> no log file is generated about the result of 
+			the validation process.</li>
+			<li><b>File report:</b> a report file is generated in 
+			<code>txt</code> or <code>csv</code> format containing statistics 
+			and a detailed list of detected problems.</li>
+			<li><b>Output report:</b> detected <i>Problems</i>, 
+			<i>Applied fixers</i>, and <i>Remaining issues</i> are saved in 
+			fields of the output file. Use this log option if you work with 
+			<b>mrv</b>, <b>sdf</b>, or <b>rdf</b> file formats supporting extra 
+			data fields.</li>
+		</ul>
+		Click <b>Next</b> to proceed.
+		</p>
+	</li>
+
+	<li><a class="anchor" id="step4"></a><b>Specify output:</b>
+		<p>
+		<img src="images/gui/screen4.png" width="792" height="291" alt="specify output"/>
+		</p>			
+		<ul>
+			<li><b>Single Output:</b> every molecule of the input files appears in a single output 
+			file, either it is fixed or unfixed depending on the previously 
+			set <b>Fix</b> option. </li>
+			<li><b>Separated Output:</b> accepted and discarded structures are 
+			saved in two different output files.</li>
+			<li><b>Ignore errors and continue with next structure</b>: finding 
+			errors does not stop the procedure.</li>
+			<li><b>Discard OCR errors</b>: if molecules with OCR errors are 
+			found, <em>Structure Checker</em> won't fix these structures (which 
+			may take a considerable large amount of time), it will skip them.</li>
+		</ul>
+	</li>
+
+	<li><a class="anchor" id="step5"></a><strong>Run <em>Structure Checker</em>:</strong>
+		<p>
+		<img src="images/gui/screen5.png" width="795" height="567" alt="summary"/>
+		</p>
+		<p>In this page, you can see the confirmation of input and output files, 
+		operation mode, and report options before starting the checking/fixing 
+		process. To change any of these settings:
+		<ul>
+			<li>click <b>Back</b>;</li>
+			<li>click the relevant page number on the navigation bar which 
+			contains the option you want to modify, or;</li>
+			<li>click on the link of the relevant module you want to modify.</li>
+		</ul>
+		</p>
+		<img src="images/gui/screen5_1.png" width="206" height="119" alt="navigate back"/>
+		
+		<p>
+		To perform structure check, click <b>Run</b>.
+		</p>
+		
+		<img src="images/gui/manual.png" width="811" height="530" alt="manual fix"/>
+		
+		<p>
+		If you have chosen a mode which prompts you to fix manually the 
+		structures, a MarvinSketch window is displayed with the incorrect 
+		structure, and the <em>Structure Checker</em> side window shows you the source 
+		of the issues. Choose the fixing method by clicking on the checker, 
+		select the mode of fixing if applicable, and click Fix selected.
+		After fixing the molecule, click on Accept button to
+		accept the changes, or Discard, if you want to save the molecule with 
+		errors.
+		</p>
+		<img src="images/gui/result.png" width="394" height="37" alt="result"/>
+		<p>
+		According to previously set checking procedure, <b>Summary</b> window
+		displays the checking and fixing results in different tabs.
+		</p>
+		<img src="images/gui/screen5_2.png" width="305" height="30" alt="tabs1"/> or 
+		<img src="images/gui/screen5_3.png" width="311" height="28" alt="tabs2"/>
+		<ul>
+			<li>Summary tab: The numbers of Checked, Accepted, and Discarded 
+			structures are presented.</li>
+			<li>Text Report tab: When <b>File report</b> has been selected, preview 
+			of the report file is available. </li>
+			<li>Report tab: Detailed log of process is displayed: input 
+			structures, identified issues, applied fixers, output structures, and
+			remaining issues are listed in table format. 
+			<p> 
+			<img src="images/gui/report_tab.png" width="782" height="30" alt="report tab"/>
+			</p>
+			You can filter the results by 
+			clicking on the following buttons:
+				<ul>
+					<li>All: Displays all structures that were analyzed by <em>Structure Checker</em>.</li>
+					<li>Had Issues: Displays structures that had identified issues.</li>
+					<li>Fixed: Displays structures that had identified issues 
+					and all of them were successfully fixed.</li>
+					<li>Unfixed: structures that had identified issues, some of them 
+					could have been fixed, but still had remaining issues.</li>
+				</ul>
+			</li>
+			<li>Output tab: When <b>Single output</b> has been specified, 
+			tabular view of structures of the output file is presented.</li>
+			<li>Accepted tab: When <b>Separated output</b> has been specified, 
+			tabular view of structures of the <i>Accepted</i> output file is 
+			available.</li>
+			<li>Discarded tab: When <b>Separated output</b> has been specified, 
+			tabular view of structures of the <i>Discarded</i> output file is 
+			available.</li>
+		</ul>
+	</li>
+</ol>
+<h2><a class="anchor" id="preferences"></a>Preferences</h2>
+<p>
+You can reach the following actions via Preferences button:
+	<ul>
+		<li><b>Help</b></li>
+		<li><b>License Manager</b></li>
+		<li><b>Profiles</b></li>
+		<li><b>About</b></li>
+	</ul>
+</p>
+
+<h2><a class="anchor" id="profile"></a>Profiles</h2>
+<p>Using profiles, the checking routine can be simpler and easier. Besides the 
+two read-only profiles, "Blank" and "Last Used", custom profiles are also available to set and use.
+</p>
+<p>
+You can add, set custom profiles, and select the default one (used at start-up) by 
+clicking on the Preferences button &gt; Profile...&gt; Edit Profiles... Unless default 
+profile is selected, <b>Blank</b> profile is loaded at start-up. 
+</p>
+<p>
+<ul>
+	<li><b>Blank</b>: All input fields are empty by default.</li>
+	<li><b>Last Used</b>: All input fields are filled with the last used data.</li>
+</ul>	
+</p> 
+<h3>How to set and configure a custom profile</h3>
+	<ul>
+		<li>Go to Preferences button &gt; Profile...&gt; Edit Profiles...;</li>
+		<li>Click on <b>Add</b> and enter a name in <i>Create New Profile</i> dialog window; <br>
+		<img src="images/gui/create_new_profile.png" width="272" height="130" alt="create new profile"/></li>
+		<li>Build your profile on the right panel selecting the preferred behavior in each <em>Structure Checker</em> window;<br>
+		<img src="images/gui/configure_profile.png" width="640" height="480" alt="configure profile"/></li>
+	</ul>
+	
+
+<hr />
+
+<h3><a class="anchor" id="links"></a>Links</h3>
+	<table>
+			<tr>
+				<td><a href="checkerlist.html">List of available checkers</a></td>
+			</tr>
+			<tr>
+				<td><a href="checker.html"><img src="images/gui/check-structure16.png" /> Structure Checker in MarvinSketch</a></td>
+			</tr>
+			<tr>
+				<td><a href="structurechecker_cline.html"><img src="images/gui/structurechecker_cli16.png" /> <code>structurechecker</code> Command Line Tool</a></td>
+			</tr>			
+			<tr>
+				<td><a href="structurechecker_examples.html">Examples of structure checking in various ChemAxon products</a></td>
+			</tr>
+			<tr>
+				<td><a href="../developer/checker.html">Structure Checker Developer Guide</a></td>
+			</tr>
+		</table>
+<p>
+<a href="#">Go to top</a>
+</p>
+<hr />
+
+</body>
+</html>

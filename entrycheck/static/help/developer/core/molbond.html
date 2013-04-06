@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC >
+<html>
+ <HEAD>
+        <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+        <title>MolBond</title>
+        <link rel=stylesheet type="text/css" href="../../marvinmanuals.css">
+ </HEAD>
+
+ <body>
+  <h1> MolBond </h1> 
+  <p> The chemaxon.struc.MolBond class is used to represent chemical bond. 
+      To create a MolBond object, one of these constructor methods can be used:
+      <ul>
+        <li> <code>MolBond(MolAtom a1, MolAtom a2, int f) </code> 
+        <li> <code>MolBond(MolAtom a1, MolAtom a2) </code> 
+        <li> <code>MolBond(MolBond b) </code> 
+      </ul>
+     The two <code>MolAtom</code> objects in the constructors defines between 
+     which atoms is the bond defined. The <code>int f</code> constant defines
+     the type of the bond. The value can be:
+     <ul> <a name=bondtypes />
+        <li>1 - single bond  </li> 
+        <li>2 - double bond  </li> 
+        <li>3 - triple bond  </li> 
+        <li><code>MolBond.AROMATIC </code> - aromatic bond  </li> 
+        <li><code>MolBond.SINGLE_OR_DOUBLE </code> 
+                       - bond, that can be both single and double  </li> 
+        <li><code>MolBond.SINGLE_OR_AROMATIC </code> 
+                       - bond, that can be both single and aromatic  </li> 
+        <li><code>MolBond.DOUBLE_OR_AROMATIC </code> 
+                       - bond, that can be both double and aromatic  </li> 
+        <li><code>MolBond.CONJUGATED </code> - conjugated bond  </li> 
+        <li><code>MolBond.COORDINATE </code> - coordinated bond  </li> 
+        <li><code>MolBond.UP </code> - single bond up </li> 
+        <li><code>MolBond.DOWN </code> - single bond down </li> 
+        <li><code>MolBond.WAVY </code> - single bond up or down </li> 
+        <li><code>MolBond.STEREO1_MASK </code> - single bond stereo mask.
+             It is the same as <code> UP | DOWN  </code></li> 
+        <li><code>MolBond.STEREO2_CARE </code> - Cis/trans info of this bond 
+   is taken care of during the SSS process, used only for query bonds </li> 
+        <li><code>MolBond.STEREO_MASK </code> - Single and double bond stereo 
+        mask. It is the same as 
+           <code> STEREO1_MASK | CTUMASK | STEREO2_CARE  </code></li> 
+        <li><code>MolBond.ANY </code> - any bond  </li> 
+     </ul>
+    If this constant is omitted, single bond object will be created.
+  <p>
+    Similarly to the MolAtom the constructed MolBond object should be 
+    added to the molecule it belongs to.
+  </p>
+  <p>
+   The following table summerizes if the properties of the MolAtom have
+   <code> set </code> or
+   <code> get </code> methods. 
+  </p>
+
+   <p style="text-align: left; margin: 0px 0px 8px 0px;">
+   <span style="font-size: 10pt; color: #000000;">&nbsp;</span></p>
+  <div style="text-align: left; text-indent: 0px; padding: 0px 0px 0px 0px; 
+              margin: 0px 0px 0px 0px;">
+  <table class="table styles2" cellspacing="0" cellpadding="4" border="0" 
+         style="border: none; border-spacing:0px; border-collapse: collapse;">
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="top" width="148" bgcolor="#e6e6e6" 
+       style="width:148px; background-color:#e6e6e6; border: solid 1px 
+             #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+    <span style="font-family: 'Arial'; font-weight: bold;">property</span></p>
+   </td>
+   <td valign="top" width="30" bgcolor="#e6e6e6" 
+       style="width:30px; background-color:#e6e6e6; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+   <span style="font-family: 'Arial'; font-weight: bold;">set </span></p>
+   </td>
+   <td valign="top" width="45" bgcolor="#e6e6e6" 
+       style="width:45px; background-color:#e6e6e6; border: solid 1px #c0c0c0;">
+    <p style="text-align: center;"><span style="font-family: 'Arial';
+               font-weight: bold;">get</span></p>
+   </td>
+   <td valign="top" width="175" bgcolor="#e6e6e6" 
+       style="width:175px; background-color:#e6e6e6; border: solid 1px 
+              #c0c0c0;">
+    <p style="text-align: center;"><span style="font-family: 'Arial'; 
+              font-weight: bold;">note</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="middle" width="148" 
+       style="width:148px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Index</span></p>
+   </td>
+   <td valign="middle" width="30" 
+       style="width:30px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">	<b>&#215;</b></span></p>
+   </td>
+   <td valign="middle" width="45" 
+       style="width:45px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="175" 
+       style="width:175px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Arial';">assigned automatically</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="middle" width="148" bgcolor="#f3f3f3" 
+       style="width:148px; background-color:#f3f3f3; 
+              border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">2 endpoints – 2 nodes</span></p>
+   </td>
+   <td valign="middle" width="30" bgcolor="#f3f3f3" 
+       style="width:30px; background-color:#f3f3f3; 
+              border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="45" bgcolor="#f3f3f3" 
+       style="width:45px; background-color:#f3f3f3; border: 
+              solid 1px #c0c0c0;">
+      <p style="text-align: center;">
+      <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="175" bgcolor="#f3f3f3" 
+       style="width:175px; background-color:#f3f3f3; 
+              border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-size: 10pt; font-family: 'Arial'; 
+                  color: #000000;">&nbsp;</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+   <td valign="middle" width="148" 
+       style="width:148px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Type</span></p>
+   </td>
+   <td valign="middle" width="30" 
+       style="width:30px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="45" 
+       style="width:45px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+   </td>
+   <td valign="middle" width="175" 
+       style="width:175px; border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-size: 10pt; 
+                  font-family: 'Arial'; color: #000000;">&nbsp;</span></p>
+   </td>
+  </tr>
+  <tr style="text-align:left;vertical-align:top;">
+    <td valign="middle" width="148" bgcolor="#f3f3f3" 
+        style="width:148px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center; margin: 0px 0px 8px 0px;">
+     <span style="font-family: 'Arial';">Stereo information</span></p>
+    </td>
+    <td valign="middle" width="30" bgcolor="#f3f3f3" 
+        style="width:30px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+       <p style="text-align: center;">
+       <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="45" bgcolor="#f3f3f3" 
+        style="width:45px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+     <p style="text-align: center;">
+     <span style="font-family: 'Wingdings 2';">&#10004;</span></p>
+    </td>
+    <td valign="middle" width="175" bgcolor="#f3f3f3" 
+        style="width:175px; background-color:#f3f3f3; 
+               border: solid 1px #c0c0c0;">
+      <p style="text-align: center; margin: 0px 0px 8px 0px;">
+      <span style="font-family: 'Arial';">
+           wedge / double bond stereo detailed in stereochemistry 
+      </span></p>
+    </td>
+   </tr>
+ </table>
+ 
+ 
+ 
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ <p>&nbsp;</p>
+ 
+ <table>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;">
+        <a href="molatom.html">MolAtom</a>
+       </p>   
+     </td>
+     <td width="250" valign="middle">
+      <p style="text-align: center;">
+       <a href="core_index.html"> Table of contents</a> 
+      </p>
+     </td>
+     <td width="250"valign="middle" >
+      <p style="text-align: center;"> 
+       <a href="moleculegraph.html">Molecule Graph</a>
+      </p>
+     </td>
+   </tr>
+   <tr style="text-align:left">
+     <td width="250" valign="middle"> 
+       <p style="text-align: center;"> 
+        <i>Previous chapter</i> 
+       </p> 
+     </td>
+     <td width="250" valign="middle">
+         &nbsp;
+     </td>
+     <td width="250" valign="middle" >
+      <p style="text-align: center;">
+       <i>Next chapter</i>
+      </p>
+     </td>
+   </tr>
+ </table>
+
+ </body>
+</html>
