@@ -549,7 +549,7 @@ class KyleFix():
         self.isok=False
         
         if smarts is None or smarts is "" or smilesstr is None or smilesstr is "":
-            self.out='fill the Reaction and Product fields, and check the format'
+            self.out='fill the Reaction and Test fields, and check the format'
             return# False, self.out, {}
             
         smarts=smarts.encode('ascii')

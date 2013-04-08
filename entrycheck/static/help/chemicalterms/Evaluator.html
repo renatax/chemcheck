@@ -517,7 +517,7 @@ evaluate -e "randomMarkushEnumerationsDisplay(3)" m.mrv -f mrv
 <p>Note, that the display options (coordinates and attached coloring data) cannot be stored in the default SMILES output format, therefore it is necessary to specify the MRV output format in this case. 
 </li>
 
-<li>Searches for structural issues, given as <a href="../structurechecker">action strings</a>; evaluator returns found explicit hydrogens or SMARTS defined substructures:
+<li>Searches for structural issues, given as <a href="../structurechecker/">action strings</a>; evaluator returns found explicit hydrogens or SMARTS defined substructures:
 <pre>
 evaluate -e "check('explicith..substructure:name=nitro check:reactionSmarts=[O:2]=[N:1]=O')" "[H]C1=CC(C)=CC(=C1)N(=O)=O" "[H]C1=CC(C)=CC=C1" "CC1=CC(=CC=C1)N(=O)=O" "CC1=CC=CC=C1"
 </pre> 

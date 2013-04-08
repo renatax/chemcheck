@@ -26,3 +26,11 @@ class AbstractElement(object):
         return str(self.me) + str(whatelse)
     def __radd__(self, whatelse):
         return str(self.me) + str(whatelse)
+    def checkbraces(self, res=None):
+        if res==None: res=self.me
+        # fast and dirty check.. it may be improved one day, but for smiles might be enough
+        if res.count("[")==res.count("]") or res.count("(")==res.count(")"):
+            return True
+        else:
+            return False
+         

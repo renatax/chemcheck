@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
 <head>
 	<meta charset="utf-8">
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
@@ -11,6 +13,7 @@
     	<style>.content {padding-top: 80px;}</style>
     	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+ 
     	<meta name="description" content="" />
 		<meta name="author" content="andrea cadeddu" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
@@ -21,26 +24,39 @@
 	{% load staticfiles %}	
 </head>
 
-<script >
-//$(document).ready(function(){
-//$('H1').text("js working");
-//});
-//</script>
-
-
 {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}!! Thanks for logging in.</p>
 {% else %}
     <p>Welcome, new user, Please log in.</p>
 {% endif %}
 
+<script >
+
+//$(document).ready(function(){
+//$('H1').text("js working");
+//});
+//</script>
+<div class="masthead">
+<div class="row">
+<div class="span6">
 <H1> New Reaction Entry</H1>
-<div class="container" >
-	<table>
-		<tr>
-			<td>
+</div><div class="span6"> <h3>usage:</h3>fill the form and it will generate the string to send Malous.</div> 
+<div class="span6"> <ul> 
+<li> The plugin don't automatically read the correct stereochemistry. Double check by copy/pasting the reaction inside the views.  </li>
+<li><en>it is possible to copy and paste inside the views, and to extend them by double-clicking on top.</en></li>
+</ul>
+</div>
+</div> </div>
+<div class="container-fluid" >
+	<div class="row">
+		<div class="span8">
+			<div class="alert alert-error">
 				
-				<form class="form-vertical" action="" method=post>
+					
+					<strong>{{ form.non_field_errors }}</strong></p>
+			</div>
+				
+				<form class="form-vertical" action="." method=post>
 				{% csrf_token %}
 				{{form|as_bootstrap}}
 				
@@ -50,15 +66,16 @@
 				</div>
 				 
 				</form>
-					<strong>{{ form.non_field_errors }}</strong>
-			</td>
-			<td>
-				<div class='output'><p>
-				<h3>Test Output</h3>
-				{% autoescape off %}
-				{% if form.out != "" %} {{form.out}} {% else %}please enter a reaction {% endif %}
-				{% endautoescape %}
-				</p></div>
+			</div>		
+			<div class="span8">
+				<div class='output'>
+                    <p>
+				    <h3>Test Output</h3>
+				    {% autoescape off %}
+				    {% if form.out != "" %} {{form.out}} {% else %}please enter a reaction {% endif %}
+				    {% endautoescape %}
+				    </p>
+                </div>
 				<div class='results'><p>
 				{% if form.fullreaction != "" %} {{form.fullreaction}} {% else %} {{form.stuff}} failed {% endif %}
 				</p></div>
@@ -81,7 +98,7 @@
 				</div>
 	
 	{% load staticfiles %}	
-    <script type="text/javascript" SRC="{{STATIC_URL}}marvin.js"></script>
+    <script type="text/javascript"SRC="{{STATIC_URL}}marvin.js"></script>
     <script type="text/javascript">
     
     //$(document).ready(function(){
@@ -101,6 +118,9 @@
 	
     marvin_jvm = "builtin"; // "builtin" or "plugin"
     mview_begin("{{ STATIC_URL }}", 500, 800, true);
+    mview_param("autoscale",true)
+    mview_param("chiralitySupport",'all')
+    mview_param("ezVisible",true)
     mview_param("rows",4)
     mview_param("cols",1)
     mview_param("visibleCols",1)
@@ -118,11 +138,12 @@
     
     </script>
 
-				
-			</td>
-		</tr>
-	</table>
+	</div>
+	</div>			
+			
 </div>
+   	<script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>  
+		<script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-alert.js"></script>
 
 
 {% endblock content %}

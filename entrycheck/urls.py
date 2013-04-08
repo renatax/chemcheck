@@ -14,6 +14,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     
     url(r'^enter/$', 'entrycheck.views.enter'),
-    url(r'^ok/$', 'entrycheck.views.enter'),
+    url(r'^results/$', 'entrycheck.views.store'),
     
 )

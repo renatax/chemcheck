@@ -32,7 +32,7 @@
 <ol>
 <p>The training of the Log<i>P</i>  plugin is simplest by using the graphical interface of Instant JChem, where the 
 log<i>P</i> and general property trainings are available. <a href="https://www.chemaxon.com/instantjchem/ijc_latest/docs/user/help/htmlfiles/chemistry_functions/training.html">See the IJC documentation for details.</a>
-The created log<i>P</i> training library <a href="training_libr_place.html"> will be stored on your computer</a> in the same place where the training library created by cxtrain, and it also can be used via Marvin, cxcalc and Chemical Terms.
+The created log<i>P</i> training library <a href="../calculations/training_libr_place.html"> will be stored on your computer</a> in the same place where the training library created by cxtrain, and it also can be used via Marvin, cxcalc and Chemical Terms. 
 
 <h4>Features:</h4>
 <ul>
@@ -58,12 +58,12 @@ The created log<i>P</i> training library <a href="training_libr_place.html"> wil
   <img src="training_files/logp_data.png" width="300" height="392" alt="mylogpdata"/>
  </p>          
 	After that, you have to run the training algorithm which
-    creates a log<i>P</i> training library from your data. <a href="training_libr_place.html">This will be stored on your computer</a><!-- home directory under chemaxon\calculations\training -->.
+    creates a log<i>P</i> training library from your data. <a href="../calculations/training_libr_place.html">This will be stored on your computer</a><!-- home directory under chemaxon\calculations\training -->.
 	
 	<h4>Generating the log<i>P</i> training library</h4> 
      <b>Execute the following command from command line </b>:
 	 <pre>cxtrain logp -t LOGP -i [library name] -a [training file] </pre> 
-	 <a href="predictor_training.html">See detailed options here.</a>
+	 <a href="../calculations/predictor_training.html">See detailed options here.</a>  
 	 (Note usage -a is optional, but recomended. It adds the built-in Log<i>P</i> training set to your data.)<br><br>
 			<b>Example</b>
 	 <pre>cxtrain logp -t LOGP -i mylogp -a logP_trainingset.sdf</pre>

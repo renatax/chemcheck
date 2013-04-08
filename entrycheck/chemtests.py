@@ -7,9 +7,9 @@ perform a series of tests to verify the inputs.
 should probably become a real object one day.
 '''
 #import the modified kyle scripts
-from elementsvalidation.kylefix import KyleFix
+from elementsvalidation.stereofix import KyleFix
 #import string
-DEBUG = False
+
 
 def testem(formarguments):
     '''
@@ -18,7 +18,7 @@ def testem(formarguments):
     results={}
     
     
-    results['name']= checkName(formarguments['name'])
+    results['name'],out= checkName(formarguments['name'])
     results['products']= checkProducts(formarguments['products'])
     results['conditions']=checkConditions(formarguments['conditions'])
     results['synthons']= checkSynthons(formarguments['synthons'])
@@ -33,24 +33,29 @@ def testem(formarguments):
 
 def checkName(name):
     import elementsvalidation.namevalidation
+    out=""
     if name == "":
-        print "name fails"
+        out =out + "name field empty"
         return False
     else:
-        if name =="cacca": #test only! remove me!
+        if name =="notthisname": #test only! remove me!
             return False
         name=elementsvalidation.namevalidation.Name(name)
-        name.isValid()
+        if not name.isValid():
+            return False, "Invalid name <br>"
         hits=name.getGoogleHits()
-        if DEBUG:   print name + "returned " + hits +" hits on Google"
-        return True
+        
+        return True,out
     
 def checkProducts(prods):
-    if prods=="":
+    import elementsvalidation.abstractvalidation
+    
+    if prods==""or prods is None:
         print "product fails"
         return False
-    else:
-        return True
+    else: 
+        validator=elementsvalidation.abstractvalidation.AbstractElement(prods)
+        return validator.checkbraces(prods)
     
     
 def checkConditions(conds):
@@ -77,7 +82,7 @@ def checkSynthons(name):
     else:
         return True
 
-def checkReaction(reaction, prods):
+def checkReaction(reaction, prods, addH=False, env=True ):
     '''
     passes the reaction and the products to kyle test script, returns 
     the boolean "isOk" and the full output of the script "out";
@@ -95,11 +100,11 @@ def checkReaction(reaction, prods):
         #kyleok, out, stuff = rdkit_fix.kylescript(reaction,prods)
         #print prods
         #generate a kylefixobject
-        kylefix=KyleFix(reaction,prods)
+        kylefix=KyleFix(reaction,prods, addH,env)
         kyleok= kylefix.isOk()
         out=kylefix.getOut() + "<br>"
         stuff=kylefix.getStuff()
-        
+        #
         return kyleok, out, stuff #comment this line when ready
 #         kyleok,out=rdkit_fix.kylescript(reaction, prods) 
 #         print out
