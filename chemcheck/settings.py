@@ -110,7 +110,8 @@ ROOT_URLCONF = 'chemcheck.urls'
 WSGI_APPLICATION = 'chemcheck.wsgi.application'
 
 import os
-TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates','../entrycheck' ).replace('\\','/'),)
+#TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '..', 'templates', ).replace('\\','/'),)
+TEMPLATE_DIRS = ('/Users/sl_62469430/Documents/Django/chemcheck/templates/', '/Users/sl_62469430/Documents/Django/chemcheck/entrycheck/',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -155,3 +156,5 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_REDIRECT_URL = 'entrycheck.views.enter'

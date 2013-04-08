@@ -4,8 +4,9 @@ from django.shortcuts import render_to_response
 from models import EntryForm
 from django.template import RequestContext
 #import json
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 # def marvin(request):
 #     return ('file:///Users/ernia/Documents/workspace/damnyoudjango/marvin/')
 def enter(request):
