@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
+
+{% block content %}
 <head>
 	<meta charset="utf-8">
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
@@ -20,7 +20,6 @@
 	{% load bootstrap_toolkit %}    
 	{% load staticfiles %}	
 </head>
-<body>
 
 <script >
 //$(document).ready(function(){
@@ -125,7 +124,5 @@
 	</table>
 </div>
 
-</body>
 
-
-</html>
+{% endblock content %}

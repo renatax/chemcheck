@@ -5,7 +5,7 @@
     <ignored path="chemcheck.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/settings.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365286350144" ignored="false" />
-    <file path="/base.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365388131756" ignored="false" />
+    <file path="/base.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365391291059" ignored="false" />
     <file path="/Dummy.txt" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263625331" ignored="false" />
     <file path="$PROJECT_DIR$/entrycheck/static/help/chemicalterms/Evaluator.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690192" ignored="false" />
     <file path="$PROJECT_DIR$/entrycheck/static/help/calculations/pka_training.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690192" ignored="false" />
@@ -28,9 +28,9 @@
     <file path="$PROJECT_DIR$/entrycheck/static/help/naming/n2s.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690193" ignored="false" />
     <file path="$PROJECT_DIR$/../salami_on_my_head/damnyoudjango/urls.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690193" ignored="false" />
     <file path="$PROJECT_DIR$/../salami_on_my_head/damnyoudjango/settings.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690193" ignored="false" />
-    <file path="/urls.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365283312770" ignored="false" />
-    <file path="/views.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365285075481" ignored="false" />
-    <file path="/default.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365388307524" ignored="false" />
+    <file path="/urls.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365390527290" ignored="false" />
+    <file path="/views.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365390096688" ignored="false" />
+    <file path="/default.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365388631854" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,41 +47,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="9" selection-start="35" selection-end="35" vertical-scroll-proportion="0.051194537">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entrycheck/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#27#74#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auth/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="17" selection-start="668" selection-end="668" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#26#83#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="3" selection-start="102" selection-end="102" vertical-scroll-proportion="-0.625">
+            <state line="18" column="17" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -90,25 +59,36 @@
       <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="16" selection-start="260" selection-end="260" vertical-scroll-proportion="-7.5">
+            <state line="15" column="37" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="thatsok.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entrycheck/templates/thatsok.html">
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/chemcheck/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="19" column="1" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6911765">
+              <folding>
+                <element signature="e#0#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auth/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="results.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entrycheck/templates/results.html">
+      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="30" column="0" selection-start="945" selection-end="975" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,21 +104,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/auth/static/custom.css" />
-        <option value="$PROJECT_DIR$/chemcheck/urls.py" />
-        <option value="$PROJECT_DIR$/auth/views.py" />
         <option value="$PROJECT_DIR$/chemcheck/settings.py" />
         <option value="$PROJECT_DIR$/templates/default.html" />
         <option value="$PROJECT_DIR$/entrycheck/views.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/entrycheck/templates/default.html" />
+        <option value="$PROJECT_DIR$/auth/views.py" />
+        <option value="$PROJECT_DIR$/templates/registration/login.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/chemcheck/urls.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="33" />
-    <option name="y" value="119" />
+    <option name="x" value="5" />
+    <option name="y" value="33" />
     <option name="width" value="956" />
     <option name="height" value="688" />
   </component>
@@ -168,7 +148,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -219,83 +198,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entrycheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entrycheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -316,25 +232,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Django server.chemcheck">
-    <configuration default="true" type="tests" factoryName="Unittests">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <module name="chemcheck" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="PARAMETERS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
@@ -358,6 +268,27 @@
       <option name="customRunCommand" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <module name="chemcheck" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -374,6 +305,13 @@
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="false" name="chemcheck" type="Python.DjangoServer" factoryName="Django server">
@@ -432,14 +370,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="33" y="119" width="956" height="688" extended-state="0" />
+    <frame x="5" y="33" width="956" height="688" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24725275" sideWeight="0.67077464" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25274727" sideWeight="0.67077464" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3309859" sideWeight="0.9988938" order="7" side_tool="false" content_ui="tabs" />
@@ -514,59 +452,33 @@
           <line>15</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/auth/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auth/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="0" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auth/static/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="13" column="15" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chemcheck/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="1" selection-start="743" selection-end="743" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="10" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/entrycheck/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="328" selection-end="352" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="15" column="21" selection-start="328" selection-end="352" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chemcheck/settings.py">
@@ -578,61 +490,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/entrycheck/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.664557">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.664557" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/templates/thatsok.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/entrycheck/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="235" selection-end="235" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#27#74#0" expanded="true" />
+            <element signature="e#27#74#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/templates/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="0.6798867" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="945" selection-end="975" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auth/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="17" selection-start="668" selection-end="668" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#26#83#0" expanded="true" />
-          </folding>
+        <state line="25" column="0" selection-start="971" selection-end="971" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="3" selection-start="102" selection-end="102" vertical-scroll-proportion="-0.625">
+        <state line="18" column="17" selection-start="576" selection-end="576" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="16" selection-start="260" selection-end="260" vertical-scroll-proportion="-7.5">
+        <state line="15" column="37" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/templates/thatsok.html">
+    <entry file="file://$PROJECT_DIR$/chemcheck/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/templates/results.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="9" selection-start="35" selection-end="35" vertical-scroll-proportion="0.051194537">
-          <folding />
+        <state line="19" column="1" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6911765">
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
