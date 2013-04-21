@@ -1,0 +1,5 @@
+-e git://github.com/django/django.git@f9ab543720532400e8b0d490cdbe67ea09ae9c17#egg=Django-dev
+argparse==1.2.1
+django-bootstrap-toolkit==2.8.0
+numpy==1.7.0
+wsgiref==0.1.2

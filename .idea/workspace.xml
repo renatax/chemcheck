@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b89aee24-a899-40c9-864d-3fc1e13b2e73" name="Default" comment="" />
+    <list default="true" id="b89aee24-a899-40c9-864d-3fc1e13b2e73" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chemcheck/settings.py" afterPath="$PROJECT_DIR$/chemcheck/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="chemcheck.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/settings.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365439325702" ignored="false" />
+    <file path="/settings.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365458427129" ignored="false" />
     <file path="/base.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365391291059" ignored="false" />
-    <file path="/Dummy.txt" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365437620052" ignored="false" />
+    <file path="/Dummy.txt" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1366579940958" ignored="false" />
     <file path="$PROJECT_DIR$/entrycheck/static/help/chemicalterms/Evaluator.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690192" ignored="false" />
     <file path="$PROJECT_DIR$/entrycheck/static/help/calculations/pka_training.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690192" ignored="false" />
     <file path="$PROJECT_DIR$/entrycheck/static/help/calculations/predictor_training.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690192" ignored="false" />
@@ -29,7 +36,7 @@
     <file path="$PROJECT_DIR$/../salami_on_my_head/damnyoudjango/urls.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690193" ignored="false" />
     <file path="$PROJECT_DIR$/../salami_on_my_head/damnyoudjango/settings.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365263690193" ignored="false" />
     <file path="/urls.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365390527290" ignored="false" />
-    <file path="/views.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365390096688" ignored="false" />
+    <file path="/views.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365446187932" ignored="false" />
     <file path="/default.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365438098967" ignored="false" />
     <file path="$PROJECT_DIR$/../chementryca/entrycheck/templates/default.html" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365437932596" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/template/defaultfilters.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365441188352" ignored="false" />
@@ -39,6 +46,7 @@
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/contrib/auth/decorators.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365441188352" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/http/request.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365441188352" ignored="false" />
     <file path="/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/django/contrib/admin/sites.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365441188352" ignored="false" />
+    <file path="$PROJECT_DIR$/../chementryca/damnyoudjango/settings.py" changelist="b89aee24-a899-40c9-864d-3fc1e13b2e73" time="1365448313617" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +68,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auth/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="14" selection-start="730" selection-end="730" vertical-scroll-proportion="-15.0">
+            <state line="21" column="13" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -72,57 +89,8 @@
       <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/chemcheck/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="24" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auth/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="28" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.0">
+            <state line="19" column="1" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entrycheck/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="8" selection-start="1872" selection-end="1872" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="4" selection-start="3191" selection-end="3191" vertical-scroll-proportion="0.7171315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/chemcheck/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="23" selection-start="2646" selection-end="2646" vertical-scroll-proportion="-0.115384616">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="marvin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entrycheck/static/marvin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="71" selection-end="85" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -134,6 +102,14 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -143,19 +119,19 @@
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/chemcheck/urls.py" />
+        <option value="$PROJECT_DIR$/entrycheck/templates/default.html" />
         <option value="$PROJECT_DIR$/entrycheck/views.py" />
         <option value="$PROJECT_DIR$/chemcheck/settings.py" />
-        <option value="$PROJECT_DIR$/entrycheck/templates/default.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="175" />
-    <option name="y" value="26" />
+    <option name="x" value="343" />
+    <option name="y" value="75" />
     <option name="width" value="956" />
     <option name="height" value="676" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -209,7 +185,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="venv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,25 +199,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entrycheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
+              <option name="myItemId" value="venv" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="entrycheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,24 +232,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="chemcheck" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,8 +245,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../chementryca" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
@@ -409,6 +356,12 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="false" name="chemcheck" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -416,7 +369,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="chemcheck.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/usr/local/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <module name="chemcheck" />
@@ -424,7 +377,7 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -465,18 +418,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="175" y="26" width="956" height="676" extended-state="0" />
-    <editor active="false" />
+    <frame x="343" y="75" width="956" height="676" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12087912" sideWeight="0.6564748" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12087912" sideWeight="0.6577061" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25274727" sideWeight="0.6564748" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27032968" sideWeight="0.6577061" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3309859" sideWeight="0.9988938" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34352517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34229392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -541,120 +494,92 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/entrycheck/views.py</url>
-          <line>15</line>
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/auth/__init__.py">
+    <entry file="file://$PROJECT_DIR$/entrycheck/static/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth/models.py">
+    <entry file="file://$PROJECT_DIR$/entrycheck/static/marvin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0" />
+        <state line="4" column="0" selection-start="71" selection-end="85" vertical-scroll-proportion="-33.953705" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth/static/custom.css">
+    <entry file="file://$PROJECT_DIR$/build/pip-delete-this-directory.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="126" selection-end="126" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="402" selection-end="402" vertical-scroll-proportion="-3.75" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/templates/thatsok.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="40" selection-start="2305" selection-end="2305" vertical-scroll-proportion="-0.625" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/templates/results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="3" selection-start="1091" selection-end="1105" vertical-scroll-proportion="-7.7083335" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="-1.875" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chemcheck/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1428" selection-end="1428" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="56" selection-start="2745" selection-end="2745" vertical-scroll-proportion="-4.6153846" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chemcheck/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="10" selection-start="771" selection-end="771" vertical-scroll-proportion="48.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entrycheck/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="39" selection-start="2104" selection-end="2104" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chemcheck/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="1" selection-start="841" selection-end="841" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="13" selection-start="806" selection-end="806" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="383" selection-end="383" vertical-scroll-proportion="0.6798867" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="37" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="14" selection-start="730" selection-end="730" vertical-scroll-proportion="-15.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chemcheck/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="24" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="8" selection-start="1872" selection-end="1872" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/static/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chemcheck/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="23" selection-start="2646" selection-end="2646" vertical-scroll-proportion="-0.115384616">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/static/marvin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="71" selection-end="85" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entrycheck/templates/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="4" selection-start="3191" selection-end="3191" vertical-scroll-proportion="0.7171315">
           <folding />
         </state>
       </provider>
